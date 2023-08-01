@@ -31,3 +31,42 @@ const newPeople = {
 
 console.log(newPeople.age);
 console.log(newPeople.hobby);
+
+
+//test3 
+const maleNames = [
+    "Adam", "Bartek", "Cezary", "Dawid", "Eryk", "Filip", "Grzegorz", "Hubert", "Igor", "Jan", "Kamil", "Lukasz"
+  ];
+  
+  const femaleNames = [
+    "Anna", "Beata", "Celina", "Daria", "Eliza", "Fiona", "Gabriela", "Hanna", "Izabela", "Joanna", "Kasia", "Laura"
+  ];
+  
+  function generateRandomName() {
+    const randomMaleName = maleNames[Math.floor(Math.random() * maleNames.length)];
+    const randomFemaleName = femaleNames[Math.floor(Math.random() * femaleNames.length)];
+  
+    const gender = Math.random() < 0.5 ? "M" : "F";
+    let name;
+  
+    if (gender === "M") {
+      name = randomMaleName;
+    } else {
+      name = randomFemaleName;
+    }
+  
+    return name;
+  }
+  
+  const autoUser = {
+    name: generateRandomName(),
+    age: 20,
+    hobby: {
+        first: 'read the book',
+
+    }
+  };
+  
+  console.log(autoUser.name);
+  console.log(autoUser.age);
+  console.log(autoUser.hobby.first);
