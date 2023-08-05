@@ -55,3 +55,16 @@ const show99 = is => {
     console.log(`wynik:${is}`);
 }
 fast (2, 2, 9)
+
+
+//próba5
+const hover = (s, j, z) => {
+    const resultXd = s * j / z;
+    show11(resultXd);
+}
+
+const show11 = ddd => {
+    console.log(`wynik jest: ${ddd}`);
+}
+
+hover(10, 3, 9);
