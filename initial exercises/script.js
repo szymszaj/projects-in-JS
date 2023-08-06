@@ -68,3 +68,14 @@ const show11 = ddd => {
 }
 
 hover(10, 3, 9);
+
+//próba6 
+const autcome = (o, p) =>{
+    const result09 = o - p;
+    showScore(result09)
+}
+
+const showJJ = autcome => {
+    console.log(`wynik: ${autcome}`);
+}
+autcome(2167, 1205)
