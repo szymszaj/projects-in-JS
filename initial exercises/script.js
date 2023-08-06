@@ -79,3 +79,15 @@ const showJJ = autcome => {
     console.log(`wynik: ${autcome}`);
 }
 autcome(2167, 1205)
+
+//próba 7
+const outcome = (o, p) => {
+    const result = Math.pow(o + p, 2);
+    showJJ(result);
+  };
+  
+  const showJ = (outcome) => {
+    console.log(`wynik: ${outcome}`);
+  };
+  
+  outcome(5, 3);
