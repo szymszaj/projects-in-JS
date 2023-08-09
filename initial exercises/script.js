@@ -108,6 +108,16 @@ const displayOutcome = (value) => {
 
 calculateSquaredSum(5, 3);
 
+//próba 10 
+const calculate = (c, d) =>{
+    const result = Math.pow(c * d, 3)
+    displayResult(result);
+}
+const display = (value1) =>{
+    console.log(`wynik to:${value1}`);
+}
+calculate(2, 6)
+
 
 
 
