@@ -35,3 +35,12 @@ const bird = {
 console.log(bird);
 
 //proba 3
+
+const catName = 'miss'
+const catAge = 5
+
+const cat = {
+    catName,
+    catAge
+}
+console.log(cat);
