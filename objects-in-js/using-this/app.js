@@ -33,3 +33,43 @@ const person = {
 
 person.showAge();  
 person.showDetails(); 
+
+
+//BIND 
+
+function test () {
+    console.log(this);
+    console.log(this.name);
+}
+
+const car1 = {
+    name:'audi',
+}
+const car2 ={
+    name:'dodge',
+
+}
+const car3 = {
+    name: 'nissan',
+}
+test.bind(car3)()
+
+
+//BIND 2
+
+function ob () {
+    console.log(this);
+    console.log(this.age);
+}
+
+const century = {
+    age: 12,
+}
+const century2 = {
+    age: 124,
+}
+const century3 = {
+    age: 33,
+}
+
+ob.bind(century2)()
