@@ -69,3 +69,23 @@ class Car2 {
 const car2 = new Car2('BMW', 2023)
 car2.info()
 car2.boughtYear()
+
+
+//class 3
+class Animal {
+    constructor(name, age){
+        this.name = name 
+        this.age = age 
+    }
+
+    dog(){
+        console.log(`pies nazywa sie ${this.name}`);
+    }
+    dogAge(){
+        console.log(`w tym roku ma ${this.age} lat`);
+    }
+    
+}
+const dog2 = new Animal('tosia', 5)
+dog2.dog()
+dog2.dogAge()
