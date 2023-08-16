@@ -89,3 +89,21 @@ class Animal {
 const dog2 = new Animal('tosia', 5)
 dog2.dog()
 dog2.dogAge()
+
+//clss 4
+class Meal {
+    constructor(dish, time){
+        this.dish = dish
+        this.time = time
+    }
+
+    food(){
+        console.log(`lubie jeść ${this.dish}`);
+    }
+    timeFood(){
+        console.log(`robi sie go ${this.time} minut`);
+    }
+}
+const meal2 = new Meal('ramen', 10)
+meal2.food()
+meal2.timeFood()
