@@ -70,3 +70,29 @@ const maleNames = [
   console.log(autoUser.name);
   console.log(autoUser.age);
   console.log(autoUser.hobby.first);
+
+
+  //destrukturyzacja 
+
+  const person = {
+    name:'Szymon',
+    age: 20,
+    job:'DJ',
+    car:{
+      model:'viper',
+      brand:'dodge'
+    }
+  }
+
+
+
+  const showInfo = ({job,name,age}) => {
+    console.log(`${name} pracuje jako ${job} i ma ${age} lat`);
+  }
+
+  const showInfo2 = ({car:{brand, model}}) =>{
+    console.log(`jego samochód to ${brand} ${model}`);
+  }
+
+  showInfo2(person)
+  showInfo(person)
