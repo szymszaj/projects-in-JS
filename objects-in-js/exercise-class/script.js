@@ -107,3 +107,43 @@ class Meal {
 const meal2 = new Meal('ramen', 10)
 meal2.food()
 meal2.timeFood()
+
+//calss 5 
+class Laptop {
+    constructor(price, model){
+        this.price = price
+        this.model = model
+    }
+
+    newLaptop(){
+        console.log(`laptop model is ${this.model} `);
+    }
+
+    priceLaptop(){
+        console.log(`laptop price is ${this.price} dollars`);
+    }
+}
+const laptop2 = new Laptop(5000, 'MSI')
+laptop2.newLaptop()
+laptop2.priceLaptop()
+
+//class 6 
+
+class Book {
+    constructor(author, price ){
+        this.author = author
+        this.price = price
+    }
+
+    thisBook(){
+        console.log(`tą książkę napisał ${this.author}`);
+    }
+
+    priceBook(){
+        console.log(`książka kosztuje ${this.price} zł.`);
+    }
+}
+const book2 = new Book('Gregory Sonry', 78)
+book2.thisBook()
+book2.priceBook()
+
