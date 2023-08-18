@@ -147,3 +147,28 @@ const book2 = new Book('Gregory Sonry', 78)
 book2.thisBook()
 book2.priceBook()
 
+//class 7
+class Smartphone {
+    constructor(model, price, advantages ){
+        this.model = model
+        this.price = price
+        this.advantages = advantages
+    }
+
+    modelInfo(){
+        console.log(`marka telefonu to ${this.model}`);
+    }
+    priceInfo(){
+        console.log(`telefon kosztuje ${this.price}`);
+
+    }
+
+    advantagesInfo(){
+        console.log(`telefon robi ${this.advantages}`);
+    }
+}
+
+const smartphone1 = new Smartphone('Samsung', 1300, 'znakomite zdjecia')
+smartphone1.modelInfo()
+smartphone1.priceInfo()
+smartphone1.advantagesInfo()
