@@ -33,3 +33,53 @@ const meal1 = meal.forEach(meal =>console.log(meal))
 
 const hobby = ['gitara, gry, narty, sport']
 const hobby1 = hobby.forEach(hobby => console.log(hobby))
+
+//rest 
+
+const numbers = (x, y, ...z) => {
+    console.log(x,y,z);
+    console.log(z.map(el => el*2));
+
+    
+}
+
+
+numbers(55,55,99,1231231231,5454,343)
+
+//zakresy 
+
+const name = 'Lisa'
+let food 
+
+const test  = () => {
+    const name = 'lily'
+    console.log(`name w funkcji - ${name}`);
+
+    food = 'schabowy'
+    console.log(food = ':D');
+    const age = 20 
+    console.log(age);
+
+    const test2 = () => {
+        console.log('----'); 
+        food = 123 
+        console.log(food);
+        
+        console.log(name ); 
+        console.log(age);   
+        const color = 'blue'    
+        console.log(color);
+
+
+    }
+
+    test2()
+    const test3 = () => {
+        console.log(color);
+    }
+
+}
+
+test()
+
+console.log(`name poza funkcja -${name }`);
