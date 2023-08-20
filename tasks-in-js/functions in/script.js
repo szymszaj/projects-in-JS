@@ -25,3 +25,11 @@ const day2 = day.forEach(function(day){
 console.log('----');
 
 const day3  = day.forEach(day => console.log(day))
+
+
+const meal = ['mleko, jajka, sałata']
+const meal1 = meal.forEach(meal =>console.log(meal))
+
+
+const hobby = ['gitara, gry, narty, sport']
+const hobby1 = hobby.forEach(hobby => console.log(hobby))
