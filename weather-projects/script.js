@@ -13,7 +13,7 @@ const API_UNITS = '&units=metric'
 // const API_URL = '0ff3b84788f24f39ce772e210a3d6afc'
 
 const getWeather = () => {
-    const city = input.value || 'Paryż'
+    const city = input.value || ''
     const URL = API_LINK + city + API_KEY + API_UNITS
 
     axios.get(URL).then(res => {
@@ -49,7 +49,14 @@ const getWeather = () => {
             photo.setAttribute('src', './img/unknown.png')
         }
     })
-    .catch(() => (warning.textContent = 'Wpisz poprawną nazwę miasta!'))
+        .catch(() => (warning.textContent = 'Wpisz poprawną nazwę miasta!'))
 }
-getWeather()
+const enter = e => {
+    if (e.key === 'Enter') {
+        getWeather()
+    }
+}
+
+input.addEventListener('keyup', enter)
 button.addEventListener('click', getWeather)
+getWeather()
