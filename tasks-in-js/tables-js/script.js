@@ -131,3 +131,17 @@ color1.push('biały')
 for (let i = 0; i < color1.length; i++) {
     console.log(`moj ulubiony kolor to: ${color1[i].toUpperCase()}`)
 }
+
+const cars = 'audi, mercedes, BMW, nissan, dodge '
+
+const carsArr = cars.split(', ')
+
+carsArr.length > 3 ? console.log('jest ok') : console.log('nie jest ok');
+
+if (carsArr.includes('audi')){
+    carsArr.push('Lamborghini')
+} else {
+    carsArr.pop()
+}
+
+console.log(carsArr);
