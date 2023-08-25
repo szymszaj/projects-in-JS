@@ -31,6 +31,8 @@ body{
     min-height: 250px;
     padding: 30px 40px 20px 40px;
     border-radius: 15px;
+    position: relative;
+    color: var(--info);
 }
 .modal-title {
     font-size: 23px;
@@ -38,6 +40,16 @@ body{
     align-items: center;
     gap: 10px;
     margin: 10px 0;
+    
+}
+.modal .danger {
+    color: var(--danger);
+}
+.modal .warning {
+    color: var(--warning);
+}
+.modal .success{
+    color: var(--success);
 }
 .modal-title-icon{
     margin-bottom: 18px;
@@ -48,4 +60,40 @@ body{
     font-size: 18px;
     line-height: 25px;
     color: rgb(145, 145, 145);
+}
+.modal-buttons button
+{
+    font-size: 18px;
+    letter-spacing: 2px;
+    width: 130px;
+    margin-top: 25px ;
+    margin-right: 20px;
+    border-radius: 8px ;
+    border: none;
+    color: white;
+    padding: 10px ;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.modal-buttons button:hover {
+    opacity: 80%;
+}
+.modal-accept {
+    background: var(--success);
+}
+.modal-decline{
+    background: var(--danger);
+}
+.modal-close-icon {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+}
+.modal-close-icon:hover {
+    color: gray;
 }
