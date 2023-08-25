@@ -4,18 +4,18 @@ const actionBtn = document.querySelector(".action-btn");
 
 
 
-const modal = (body) => {
+const modal = (body = {}) => {
     return `<div class="modal">
-    <p class="modal-title info">
-      <i class="modal-title-icon" data-feather="info"></i>
-      ${body.title}
+    <p class="modal-title ${body.type || ""}">
+      <i class="modal-title-icon" data-feather="${body.modal_icon || "info"}"></i>
+      ${body.title || "Czy jesteś pewny?"}
     </p>
     <p class="modal-description">
-      ${body.description}
+      ${body.description || "Potwierdz swój wybór"}
     </p>
     <div class="modal-buttons">
-        <button class="modal-accept">${body.accept_btn}</button>
-        <button class="modal-decline">${body.decline_btn}</button>
+        <button class="modal-accept modal-action-btn">${body.accept_btn || "Tak"}</button>
+        <button class="modal-decline modal-action-btn">${body.decline_btn || "Nie"}</button>
     </div>
     <button class="modal-close-icon"> <i data-feather="x"></i></button>
   </div>`
@@ -26,12 +26,30 @@ const createModal = (value) => {
     modalContainer.className = "modal-container";
     modalContainer.innerHTML = modal(value);
     document.body.appendChild(modalContainer);
+
+
+    const closeIcon = document.querySelector(".modal-close-icon")
+    closeIcon.addEventListener("click", () => {
+        const modal = document.querySelector(".modal-container")
+        modal.remove()
+    })
+    const closeButtons = document.querySelectorAll(".modal-action-btn")
+    closeButtons.forEach(btn => btn.addEventListener("click",
+        () => {
+            const modal = document.querySelector(".modal-container")
+            modal.remove()
+        }))
+
     feather.replace();
-}
+    document.body.style.overflow = "hidden"
+
+};
 const addToBaslet = () => {
     console.log("dodano do oferty");
 
     createModal({
+        type: "warning",
+        modal_icon: "alert-triangle",
         title: "Lorem ipsum dolor title",
         description: "Lorem ipsum, dolor sit amet consectetur adipisicing.",
         accept_btn: "Zaakceptuj",
@@ -53,5 +71,9 @@ const actionTwoBtn = document
         })
     });
 
-
+const actionThreeBtn = document
+    .querySelector(".action-three-btn")
+    .addEventListener("click", () => {
+        createModal()
+    })
 actionBtn.addEventListener("click", addToBaslet)
