@@ -29,3 +29,32 @@ const countBill = () => {
 
 
 countBtn.addEventListener('click', showBill);
+
+
+
+
+// document.addEventListener("DOMContentLoaded", function() {
+//     const countButton = document.querySelector(".count");
+//     const confettiContainer = document.querySelector(".wrapper");
+  
+//     countButton.addEventListener("click", function(event) {
+//       event.preventDefault();
+  
+//       const form = document.getElementById("billForm");
+//       if (form.checkValidity()) {
+
+//         for (let i = 0; i < 100; i++) {
+//           const confetti = document.createElement("div");
+//           confetti.classList.add("confetti");
+//           confetti.style.left = Math.random() * 100 + "vw";
+//           confetti.style.top = Math.random() * 100 + "vh";
+  
+//           confettiContainer.appendChild(confetti);
+  
+//           confetti.addEventListener("animationend", function() {
+//             confettiContainer.removeChild(confetti);
+//           });
+//         }
+//       }
+//     });
+//   });

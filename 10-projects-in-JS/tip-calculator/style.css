@@ -77,3 +77,20 @@ input, select {
     color: rgb(199,63,29);
     text-align: center;
 }
+
+/* @keyframes confetti {
+    0% {
+      transform: translateY(0) rotate(0);
+    }
+    100% {
+      transform: translateY(-100vh) rotate(360deg);
+    }
+  }
+  
+  .confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #00ff00;
+    animation: confetti 3s ease-out;
+  } */
