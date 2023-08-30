@@ -94,18 +94,20 @@ h1{
     background-color: #fff;
     border-radius: 8px;
     border: 2px solid rgb(168, 168, 168);
-    transition: .5s top;
-
+    transition: top .5s;
+    
+    
 }
 
 .popup p{
     font-size: 28px;
 }
-.popup .close{
+.popup button{
     margin-top: 20px;
 }
+.show-popup{
+    top: 100px;
+}  
 
-/* .show-popup{
-    top: 180px;
-} */
-    
+
+

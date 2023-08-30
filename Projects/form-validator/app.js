@@ -49,10 +49,26 @@ const checkEmail = emai => {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
 
-    if(re.test(email.value)){
+    if (re.test(email.value)) {
         clearError(email)
     } else {
         showError(email, 'E-mail jest niepoprawny')
+    }
+}
+
+
+const checkErrors = () => {
+    const allInputs = document.querySelectorAll('.form-box');
+    let errorCount = 0;
+
+    allInputs.forEach(el => {
+        if (el.classList.contains('error')) {
+            errorCount++;
+        }
+    })
+
+    if (errorCount === 0) {
+        popup.classList.add('show-popup');
     }
 }
 
@@ -61,12 +77,14 @@ sendBtn.addEventListener('click', e => {
 
     checkForm([username, pass, pass2, email])
 
-    checkLength(username, 3)
-    checkLength(pass, 8)
-    checkPassword(pass, pass2)
-    checkEmail(email)
+    checkLength(username, 3);
+    checkLength(pass, 8);
+    checkPassword(pass, pass2);
+    checkEmail(email);
+    checkErrors();
 
 })
+
 
 
 clearBtn.addEventListener('click', e => {
@@ -74,6 +92,7 @@ clearBtn.addEventListener('click', e => {
 
     [username, pass, pass2, email].forEach(el => {
         el.value = '';
+        clearError(el)
     });
 
 })
