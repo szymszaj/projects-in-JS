@@ -122,3 +122,9 @@ color: #ddd;
     color: red;
     visibility: hidden;
 }
+.far {
+    margin-right: 6px;
+}
+.fas{
+    margin-right: 6px;
+}
