@@ -8,6 +8,11 @@ const answerArr = ['Tak!', 'Nie', 'po co chcesz to wiedzieÄ‡', ' nie wiem', 'CiÄ
 
 
 
+    const shakeBall = () =>{
+        ball.classList.add('shake-animaton')
+        setTimeout(checkInput, 1000)
+    }
+
 const checkInput = () => {
     if (input.value !== '' && input.value.slice(-1) === '?') {
         generatorAnswer();
@@ -25,12 +30,12 @@ const checkInput = () => {
 
 const generatorAnswer = () => {
 
-    const randomIndex = Math.floor(Math.random() * answerArr.length);
+    const randomIndex = Math.floor(Math.random() * 11);
     answer.innerHTML = `<span>Odpowiedz:</span> ${answerArr[randomIndex]}`
 
 };
 
-ball.addEventListener('click', checkInput)
+ball.addEventListener('click', shakeBall)
 
 
 
