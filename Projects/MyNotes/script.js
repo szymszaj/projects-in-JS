@@ -39,7 +39,7 @@ const createNote = () => {
     newNote.innerHTML = `
     <div class="note-header">
       <h3 class="note-title">${selectedValue}</h3>
-      <button class="delete-note">
+      <button class="delete-note" onclick="deleteNote(${cardID})">
         <i class="fas fa-times icon"></i>
       </button>
     </div>
@@ -54,10 +54,35 @@ const createNote = () => {
     textarea.value = ''
     category.selectedIndex = 0
     notePanel.style.display = 'none'
+    chcekColor(newNote)
+
 }
 const selectValue = () => {
     selectedValue = category.options[category.selectedIndex].text;
 }
+
+const chcekColor = note => {
+    switch (selectedValue) {
+        case 'Zakupy':
+            note.style.backgroundColor = 'rgba(24, 148, 51, 0.808)';
+            break;
+        case 'Praca':
+            note.style.backgroundColor = 'rgb(255,243,0)';
+            break;
+        case 'Inne':
+            note.style.backgroundColor = 'rgb(0,170,255)';
+            break;
+    }
+}
+const deleteNote = (id) => {
+    const noteToDelete = document.getElementById(id)
+    noteArea.removeChild(noteToDelete)
+}
+const deleteAllNotes = () => {
+    noteArea.textContent = ''
+}
+
 addBtn.addEventListener('click', openPanel);
 cancelBtn.addEventListener('click', closePanel)
 saveBtn.addEventListener('click', addNote)
+deleteAllBtn.addEventListener('click', deleteAllNotes)
