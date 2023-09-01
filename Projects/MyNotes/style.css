@@ -6,7 +6,7 @@
 body {
     height: 100vh;
     font-family: 'Montserrat', sans-serif;
-    background-color: rgb(243, 243, 243);
+    background-color: rgb(247, 247, 247);
 
 }
 .menu{
@@ -94,7 +94,7 @@ color: #ddd;
     transform: translate(-50%,-50%);
     padding: 40px 0;
     width: 600px;
-    background-color: #fff;
+    background-color: rgb(247, 247, 247);
     box-shadow: 0 0 10px rgba(143, 143, 143, 0.808);
     border-radius: 12px;
 }
