@@ -72,14 +72,23 @@ const chcekColor = note => {
         case 'Inne':
             note.style.backgroundColor = 'rgb(0,170,255)';
             break;
+        case 'Szkoła':
+            note.style.backgroundColor = 'rgba(160, 70, 235, 0.897)';
+            break;
     }
 }
 const deleteNote = (id) => {
     const noteToDelete = document.getElementById(id)
     noteArea.removeChild(noteToDelete)
 }
+// const deleteAllNotes = () => {
+//     noteArea.textContent = ''
+// }
 const deleteAllNotes = () => {
-    noteArea.textContent = ''
+    const confirmation = confirm("Czy na pewno chcesz usunąć wszystkie notatki? Tej operacji nie będzie można cofnąć.");
+    if (confirmation) {
+        noteArea.textContent = '';
+    }
 }
 
 addBtn.addEventListener('click', openPanel);
