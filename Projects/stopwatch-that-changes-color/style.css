@@ -52,8 +52,12 @@ body {
 }
 .fa-solid {
     font-size: 52px;
+    color: var(--whit-color);
+    transition: color .3s;
+    cursor: pointer;
+}
+.fa-solid:hover {
     color: var(--first-color);
-    
 }
 
 h1 {
