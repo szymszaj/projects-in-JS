@@ -128,3 +128,36 @@ color: #ddd;
 .fas{
     margin-right: 6px;
 }
+/* Styl motywu jasnego */
+.light-theme {
+    background-color: white;
+    color: black;
+}
+
+/* Styl motywu ciemnego */
+.dark-theme {
+    background-color: #333;
+    color: white;
+}
+
+/* Styl ikony motywu */
+.fa-lightbulb {
+    margin-left: 10px;
+    font-size: 25px;
+    color: yellow; /* Kolor dla motywu jasnego */
+    cursor: pointer;
+    transition: color .3s;
+}
+.fa-lightbulb:hover{
+    color: rgb(189, 189, 42);
+}
+
+.dark-theme .fa-lightbulb {
+    color: yellow;
+    transition: color .3s;
+
+}
+.dark-theme .fa-lightbulb:hover{
+    color: #fff;     /*kolor dla motywu ciemnego */
+}
+

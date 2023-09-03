@@ -91,6 +91,28 @@ const deleteAllNotes = () => {
     }
 }
 
+// Dodaj zmienne
+let isDarkTheme = false;
+
+// Funkcja do zmiany motywu
+const toggleTheme = () => {
+    const body = document.body;
+
+    if (isDarkTheme) {
+        body.classList.remove('dark-theme');
+        body.classList.add('light-theme');
+    } else {
+        body.classList.remove('light-theme');
+        body.classList.add('dark-theme');
+    }
+
+    isDarkTheme = !isDarkTheme;
+};
+
+// Obsługa kliknięcia na ikonie zmiany motywu
+const themeToggle = document.getElementById('theme-toggle');
+themeToggle.addEventListener('click', toggleTheme);
+
 addBtn.addEventListener('click', openPanel);
 cancelBtn.addEventListener('click', closePanel)
 saveBtn.addEventListener('click', addNote)
