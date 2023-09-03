@@ -15,6 +15,9 @@ let countTime;
 let minutes = 0
 let seconds = 0
 
+//tablica 
+let timeArr = []
+
 //stoper przycisk start
 const handleStart = () => {
 
@@ -35,10 +38,33 @@ const handleStart = () => {
 
     }, 100)
 }
+const handleStop = () => {
+
+    time.innerHTML = `Ostatni czas: ${stopwatch.textContent}`
+
+    if (stopwatch.textContent !== '0:00') {
+        time.style.visibility = 'visible'
+        timeArr.push(stopwatch.textContent)
+        console.log(timeArr);
+
+
+
+        // time.style.fontWeight = 'bold'
+    }
+
+    clearInterval(countTime)
+    stopwatch.textContent = '0:00'
+    timeList.textContent = ''
+    seconds = 0
+    minutes = 0
+}
+
 
 const handlePause = () => {
     clearInterval(countTime)
 }
 
+
 startBtn.addEventListener('click', handleStart)
 pauseBtn.addEventListener('click', handlePause)
+stopBtn.addEventListener('click', handleStop)
