@@ -8,14 +8,13 @@ const notePanel = document.querySelector('.note-panel')
 const category = document.querySelector('#category')
 const textarea = document.querySelector('#text')
 const error = document.querySelector('.error')
-let selectedValue;
 
+let selectedValue;
 let cardID = 0;
 
 const openPanel = () => {
     notePanel.style.display = 'flex';
 }
-
 const closePanel = () => {
     notePanel.style.display = 'none'
     error.style.visibility = 'hidden'
@@ -91,10 +90,10 @@ const deleteAllNotes = () => {
     }
 }
 
-// Dodaj zmienne
+// variables to dark theme
 let isDarkTheme = false;
 
-// Funkcja do zmiany motywu
+// Theme change function
 const toggleTheme = () => {
     const body = document.body;
 
@@ -108,11 +107,13 @@ const toggleTheme = () => {
 
     isDarkTheme = !isDarkTheme;
 };
-
-// Obsługa kliknięcia na ikonie zmiany motywu
+// Support for clicking on the theme change icon
 const themeToggle = document.getElementById('theme-toggle');
 themeToggle.addEventListener('click', toggleTheme);
 
+
+
+//calling functions
 addBtn.addEventListener('click', openPanel);
 cancelBtn.addEventListener('click', closePanel)
 saveBtn.addEventListener('click', addNote)

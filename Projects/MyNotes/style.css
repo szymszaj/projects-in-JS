@@ -63,7 +63,6 @@ color: #ddd;
     /* border: solid 1px black;  */
     
 }
-
 .note-header{
     display: flex;
     justify-content: space-between;
@@ -77,12 +76,10 @@ color: #ddd;
     border: none;
     cursor: pointer;
 }
-
 .note-body{
     padding: 20px 15px;
     font-size: 15px;
 }
-
 .note-panel{
     display: none;
     justify-content: center;
@@ -98,7 +95,6 @@ color: #ddd;
     box-shadow: 0 0 10px rgba(143, 143, 143, 0.808);
     border-radius: 12px;
 }
-
 .note-panel h2 {
     margin-bottom: 20px;
     text-transform: uppercase;
@@ -128,6 +124,8 @@ color: #ddd;
 .fas{
     margin-right: 6px;
 }
+
+
 /* Styl motywu jasnego */
 .light-theme {
     background-color: white;
@@ -151,11 +149,9 @@ color: #ddd;
 .fa-lightbulb:hover{
     color: rgb(189, 189, 42);
 }
-
 .dark-theme .fa-lightbulb {
     color: yellow;
     transition: color .3s;
-
 }
 .dark-theme .fa-lightbulb:hover{
     color: #fff;     /*kolor dla motywu ciemnego */
