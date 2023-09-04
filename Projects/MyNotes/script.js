@@ -12,6 +12,29 @@ const error = document.querySelector('.error')
 let selectedValue;
 let cardID = 0;
 
+//Function for saving notes in localStorage
+const saveNotesToLocalStorage = () => {
+    const notes = noteArea.innerHTML;
+    localStorage.setItem('notes', notes);
+  };
+
+  //Function for reading notes from localStorage
+const loadNotesFromLocalStorage = () => {
+    const savedNotes = localStorage.getItem('notes');
+    if (savedNotes) {
+      noteArea.innerHTML = savedNotes;
+    }
+  };
+
+  //Function for deleting notes from localStorage
+const deleteNoteAndSave = (id) => {
+    const noteToDelete = document.getElementById(id);
+    noteArea.removeChild(noteToDelete);
+    saveNotesToLocalStorage();
+  };
+  loadNotesFromLocalStorage();
+
+
 const openPanel = () => {
     notePanel.style.display = 'flex';
 }
@@ -54,6 +77,7 @@ const createNote = () => {
     category.selectedIndex = 0
     notePanel.style.display = 'none'
     chcekColor(newNote)
+    saveNotesToLocalStorage();
 
 }
 const selectValue = () => {
@@ -78,11 +102,9 @@ const chcekColor = note => {
 }
 const deleteNote = (id) => {
     const noteToDelete = document.getElementById(id)
-    noteArea.removeChild(noteToDelete)
+    // noteArea.removeChild(noteToDelete)
+    deleteNoteAndSave(id)
 }
-// const deleteAllNotes = () => {
-//     noteArea.textContent = ''
-// }
 const deleteAllNotes = () => {
     const confirmation = confirm("Czy na pewno chcesz usunąć wszystkie notatki? Tej operacji nie będzie można cofnąć.");
     if (confirmation) {
@@ -110,7 +132,6 @@ const toggleTheme = () => {
 // Support for clicking on the theme change icon
 const themeToggle = document.getElementById('theme-toggle');
 themeToggle.addEventListener('click', toggleTheme);
-
 
 
 //calling functions
