@@ -1,15 +1,17 @@
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
+
 body {
     height: 100vh;
     font-family: 'Montserrat', sans-serif;
     background-color: rgb(247, 247, 247);
 
 }
-.menu{
+
+.menu {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -18,69 +20,82 @@ body {
     background-color: rgb(141, 135, 135, .6)
 }
 
-.menu button, 
+.menu button,
 .note-panel .save,
-.note-panel .cancel{
+.note-panel .cancel {
     padding: 12px 25px;
     background: none;
     border: 1px solid #999;
     border-radius: 7px;
     font-size: 14px;
     cursor: pointer;
-    transition:background-color .3s, color .3s ;
+    transition: background-color .3s, color .3s;
 }
-.menu button:hover, 
+
+.menu button:hover,
 .note-panel .save:hover,
-.note-panel .cancel:hover{
-background-color: #333;
-color: #ddd;
+.note-panel .cancel:hover {
+    background-color: #333;
+    color: #ddd;
 }
+
 .green-text {
     color: rgba(0, 255, 255, 0.836);
     transition: color 0.6s;
     cursor: pointer;
 }
+
 .green-text:hover {
-    color:black ;
+    color: black;
 }
-.icon{
+
+.icon {
     margin-right: 10px;
 }
+
 .add {
     margin-right: 20px;
 }
-.note-area{
+
+.note-area {
     display: flex;
     align-items: start;
     flex-wrap: wrap;
     padding: 20px;
 }
+
 .note {
     margin: 40px 20px;
     width: 240px;
-    background-color: rgba(238, 255, 0, .8); /*kolor tła z przezroczystości */
-    color: black; /* Kolor tekstu */   
+    background-color: rgba(238, 255, 0, .8);
+    /*kolor tła z przezroczystości */
+    color: black;
+    /* Kolor tekstu */
     /* border: solid 1px black;  */
-    
+
 }
-.note-header{
+
+.note-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
     background-color: rgba(0, 0, 0, .2);
 }
-.note-header .delete-note{
+
+.note-header .delete-note {
     background: none;
     font-size: 22px;
     border: none;
     cursor: pointer;
 }
-.note-body{
+
+.note-body {
     padding: 20px 15px;
     font-size: 15px;
 }
-.note-panel{
+
+.note-panel {
     display: none;
     justify-content: center;
     align-items: center;
@@ -88,21 +103,24 @@ color: #ddd;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     padding: 40px 0;
     width: 600px;
     background-color: rgb(247, 247, 247);
     box-shadow: 0 0 10px rgba(143, 143, 143, 0.808);
     border-radius: 12px;
 }
+
 .note-panel h2 {
     margin-bottom: 20px;
     text-transform: uppercase;
 
 }
+
 .note-panel label {
     margin-bottom: 10px;
 }
+
 .note-panel #text,
 .note-panel #category {
     margin-bottom: 20px;
@@ -113,15 +131,18 @@ color: #ddd;
     font-size: 16px;
     border-radius: 5px;
 }
+
 .note-panel .error {
     margin-bottom: 20px;
     color: red;
     visibility: hidden;
 }
+
 .far {
     margin-right: 6px;
 }
-.fas{
+
+.fas {
     margin-right: 6px;
 }
 
@@ -142,18 +163,24 @@ color: #ddd;
 .fa-lightbulb {
     margin-left: 10px;
     font-size: 25px;
-    color: yellow; /* Kolor dla motywu jasnego */
-    cursor: pointer;
-    transition: color .3s;
-}
-.fa-lightbulb:hover{
-    color: rgb(189, 189, 42);
-}
-.dark-theme .fa-lightbulb {
     color: yellow;
-    transition: color .3s;
-}
-.dark-theme .fa-lightbulb:hover{
-    color: #fff;     /*kolor dla motywu ciemnego */
+    /* Kolor dla motywu jasnego */
+    cursor: pointer;
+    transition: transform .3s, color .3s;
 }
 
+.fa-lightbulb:hover {
+    color: rgb(189, 189, 42);
+    transform: scale(.8);
+}
+
+.dark-theme .fa-lightbulb {
+    color: yellow;
+    transition: transform .3s, color .3s;
+}
+
+.dark-theme .fa-lightbulb:hover {
+    color: #fff;
+    /*kolor dla motywu ciemnego */
+    transform: scale(.8);
+}
