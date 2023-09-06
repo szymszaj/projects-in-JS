@@ -55,10 +55,11 @@ const createNewTransaction = () => {
         </p>
     `;
 
-    amountInput.value > 0 ? incomeSection.appendChild(newTransaction) && 
-    newTransaction.classList.add('income') : expensesSection.appendChild
-    (newTransaction) && newTransaction.classList.add('expense');
+    amountInput.value > 0 ? incomeSection.appendChild(newTransaction) &&
+        newTransaction.classList.add('income') : expensesSection.appendChild
+            (newTransaction) && newTransaction.classList.add('expense');
     moneyArr.push(parseFloat(amountInput.value));
+    countMoney(moneyArr)
 
     closePanel();
     ID++;
@@ -69,7 +70,7 @@ const selectCategory = () => {
     selectedCategory = categorySelect.options[categorySelect.selectedIndex].text;
 }
 const checkCategory = (transaction) => {
-    switch(transaction){
+    switch (transaction) {
         case '[ + ] Przychód':
             categoryIcon = '<i class="fas fa-money-bill-wave"></i>'
             break;
@@ -88,7 +89,10 @@ const checkCategory = (transaction) => {
 
     }
 }
-
+const countMoney = (money) => {
+    const newMoney = money.reduce((a, b) => a + b)
+    availableMoney.textContent = `${newMoney}zł`
+}
 
 //wywoływanie funkcji
 addTransaction.addEventListener('click', showPanel)
