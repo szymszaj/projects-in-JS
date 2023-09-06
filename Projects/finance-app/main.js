@@ -107,7 +107,20 @@ const deleteTransatcion = id => {
     countMoney(moneyArr)
 }
 
+const deleteAll = () => {
+    // Wyświetl alert z pytaniem o potwierdzenie
+    const confirmation = confirm("Czy na pewno chcesz usunąć wszystkie dane?");
+    
+    // Jeśli użytkownik potwierdzi, że chce usunąć dane
+    if (confirmation) {
+        incomeSection.innerHTML = '<h3>Przychód:</h3>'
+        expensesSection.innerHTML = '<h3>Wydatki:</h3>'
+        availableMoney.textContent = '0 zł'
+        moneyArr = [0]
+    }
+}
 //wywoływanie funkcji
 addTransaction.addEventListener('click', showPanel)
 cancelBtn.addEventListener('click', closePanel)
 saveBtn.addEventListener('click', checkForm)
+deleteAllBtn.addEventListener('click', deleteAll)
