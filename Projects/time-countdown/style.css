@@ -10,7 +10,7 @@ body {
     align-items: center;
     min-height: 100vh;
     font-family: 'Montserrat', sans-serif;
-    background-color: rgb(233, 233, 233);
+    background-color: rgba(199, 198, 198, 0.884);
 }
 
 .counter-app {
@@ -20,8 +20,8 @@ body {
 .app-body {
     display: flex;
     flex-direction: column;
-    width: 800px;
-    height: 800px;
+    width: 700px;
+    height: 700px;
     border-radius: 15px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, .6);
     overflow: hidden;
@@ -98,7 +98,7 @@ h3 {
 }
 
 .settings {
-    display: flex;
+    display: none; 
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -133,15 +133,18 @@ input {
     padding: 10px 20px;
     width: 100%;
 }
-.date{
+
+.date {
     text-align: center;
 
 }
-.save{
+
+.save {
     padding: 10px 20px;
     cursor: pointer;
     transition: transform .3s;
 }
+
 .save:hover {
     transform: scale(.9);
 }
