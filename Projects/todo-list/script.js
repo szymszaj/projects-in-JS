@@ -45,6 +45,7 @@ const addNewTask = () => {
 
         $todoInput.value = ''
         $alertInfo.innerText = ''
+        createToolsArea();
     } else {
         $alertInfo.innerText = 'Wpisz treść zadania!'
 
@@ -55,7 +56,34 @@ const addNewTask = () => {
 const enterCheck = () => {
     console.log(event);
     if (event.keyCode === 13) {
-        addNewTask()
+        addNewTask();
     }
+}
+const createToolsArea = () => {
+        const toolsPnael = document.createElement('div');
+        toolsPnael.classList.add('tools');
+        $newTask.appendChild(toolsPnael);
+
+        const completeBtn = document.createElement('button');
+        completeBtn.classList.add('complete');
+        completeBtn.innerHTML = '<i class="fas fa-check"></i>';
+
+        const editBtn = document.createElement('button');
+        editBtn.classList.add('edit');
+        editBtn.innerHTML = 'EDIT';
+
+        const deleteBtn = document.createElement('button');
+        deleteBtn.classList.add('delete');
+        deleteBtn.innerHTML = '<i class="fas fa-times"></i>';
+
+        toolsPnael.appendChild(completeBtn);
+        toolsPnael.appendChild(editBtn);
+        toolsPnael.appendChild(deleteBtn);
+    //  <div class="tools">
+    //    <button class="complete"><i class="fas fa-check"></i></button>
+    //    <button class="edit">EDIT</button>
+    //    <button class="delete"><i class="fas fa-times"></i></button>
+    //  </div>
+
 }
 document.addEventListener('DOMContentLoaded', main);
