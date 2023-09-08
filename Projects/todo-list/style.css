@@ -111,15 +111,27 @@ h1 {
 
 .complete {
     color: var(--light-blue);
+    transition: transform .3s;
+}
+.complete:hover{
+    transform: scale(0.9);
 }
 
 .edit {
     font-weight: bold;
     color: rgb(15, 179, 69);
+    transition: transform .3s;
+}
+.edit:hover{
+    transform: scale(0.9);
 }
 
 .delete {
     color: rgb(226, 61, 32);
+    transition: transform .3s;
+}
+.delete:hover{
+    transform: scale(0.9);
 }
 
 .completed {
@@ -128,7 +140,6 @@ h1 {
     color: var(--light-dark);
     text-decoration: line-through;
 }
-
 .popup {
     display: none;
     justify-content: center;
@@ -193,4 +204,10 @@ h1 {
     color: var(--white);
     background-color: var(--light-blue);
     transform: scale(0.98);
+}
+.fas{
+    transition: transform .3s;
+}
+.fas:hover{
+    transform:scale(0.98);
 }
