@@ -1,4 +1,4 @@
-let $todoInput  
+let $todoInput
 let $alertInput
 let $addBtn
 let $ulList
@@ -32,10 +32,30 @@ const prepareDOMElements = () => {
 
 const prepareDOMEvents = () => {
     $addBtn.addEventListener('click', addNewTask);
+    $todoInput.addEventListener('keyup', enterCheck)
 }
 
 const addNewTask = () => {
-    console.log('ok');
+    if ($todoInput.value !== '') {
+        $idNumber++
+        $newTask = document.createElement('li')
+        $newTask.innerText = $todoInput.value
+        $newTask.setAttribute('id', `todo-${$idNumber}`)
+        $ulList.appendChild($newTask)
+
+        $todoInput.value = ''
+        $alertInfo.innerText = ''
+    } else {
+        $alertInfo.innerText = 'Wpisz treść zadania!'
+
+    }
 }
 
+
+const enterCheck = () => {
+    console.log(event);
+    if (event.keyCode === 13) {
+        addNewTask()
+    }
+}
 document.addEventListener('DOMContentLoaded', main);
