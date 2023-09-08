@@ -7,10 +7,14 @@
 :root {
     --deep-dark: rgb(26, 26, 26);
     --light-dark: rgb(79, 82, 92);
-    --light-blue: rgb(0, 132, 255);
-    --dark-blue: rgb(2, 84, 161);
+    --light-blue: #017c43;
+    /* --light-blue: rgb(0, 132, 255); */
+    --dark-blue: #017c43;
+    /* --dark-blue: rgb(2, 84, 161); */
     --light: rgb(245, 245, 245);
     --white: #fff;
+    --body: #e2e2e2ce;
+    --cancel: red;
 }
 
 body {
@@ -18,7 +22,7 @@ body {
     justify-content: center;
     margin-top: 120px;
     font-family: 'Montserrat', sans-serif;
-    background-color: var(--light);
+    background-color: var(--body);
 }
 
 h1 {
@@ -38,7 +42,8 @@ h1 {
 .header {
     padding: 40px;
     border-radius: 5px 5px 0 0;
-    background-image: linear-gradient(340deg, #045de9 0%, #09c6f9 100%);
+    /* background-image: linear-gradient(340deg, #005bec 1%, #159abe 100%); */
+    background-image: linear-gradient(340deg, #017c43 1%, #159abe 100%);
 }
 
 .todo-input {
@@ -127,7 +132,7 @@ h1 {
 }
 
 .delete {
-    color: rgb(226, 61, 32);
+    color: var(--cancel);
     transition: transform .3s;
 }
 .delete:hover{
@@ -151,12 +156,10 @@ h1 {
     transform: translateX(-50%);
     width: 800px;
     color: var(--light);
-    background-color: var(--light-dark);
+    /* background-color: var(--light-dark); */
+    background-color: #0c0e14e1;
     border-radius: 5px;
-    transition: transform .5s, opacity .3s;
-}
-.active {
-    opacity: 1;
+    transition: transform .5s;
 }
 
 .popup h3 {
@@ -205,9 +208,21 @@ h1 {
     background-color: var(--light-blue);
     transform: scale(0.98);
 }
-.fas{
-    transition: transform .3s;
+.cancel:hover{
+    background-color: var(--cancel);
 }
-.fas:hover{
-    transform:scale(0.98);
-}
+/* animacja  */
+.slide-up {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -100%; /* Przesuń animację na dół ekranu */
+    animation: slide-up-animation 0.4s forwards;
+    opacity: .9;
+  }
+  
+  @keyframes slide-up-animation {
+    to {
+      bottom: 90px; /* Przesuń animację na górę ekranu */
+    }
+  }
