@@ -16,7 +16,6 @@ const main = () => {
     prepareDOMElements();
     prepareDOMEvents();
 }
-
 const prepareDOMElements = () => {
     $todoInput = document.querySelector('.todo-input');
     $alertInfo = document.querySelector('.alert-info');
@@ -29,12 +28,13 @@ const prepareDOMElements = () => {
     $addPopupBtn = document.querySelector('.accept');
     $closeTodoBtn = document.querySelector('.cancel');
 }
-
 const prepareDOMEvents = () => {
     $addBtn.addEventListener('click', addNewTask);
     $todoInput.addEventListener('keyup', enterCheck)
+    $ulList.addEventListener('click', chceckClick);
+    $addPopupBtn.addEventListener('click', changeTodo);
+    $closeTodoBtn.addEventListener('click', closePopup);
 }
-
 const addNewTask = () => {
     if ($todoInput.value !== '') {
         $idNumber++
@@ -52,7 +52,6 @@ const addNewTask = () => {
     }
 }
 
-
 const enterCheck = () => {
     console.log(event);
     if (event.keyCode === 13) {
@@ -60,30 +59,69 @@ const enterCheck = () => {
     }
 }
 const createToolsArea = () => {
-        const toolsPnael = document.createElement('div');
-        toolsPnael.classList.add('tools');
-        $newTask.appendChild(toolsPnael);
+    const toolsPnael = document.createElement('div');
+    toolsPnael.classList.add('tools');
+    $newTask.appendChild(toolsPnael);
 
-        const completeBtn = document.createElement('button');
-        completeBtn.classList.add('complete');
-        completeBtn.innerHTML = '<i class="fas fa-check"></i>';
+    const completeBtn = document.createElement('button');
+    completeBtn.classList.add('complete');
+    completeBtn.innerHTML = '<i class="fas fa-check"></i>';
 
-        const editBtn = document.createElement('button');
-        editBtn.classList.add('edit');
-        editBtn.innerHTML = 'EDIT';
+    const editBtn = document.createElement('button');
+    editBtn.classList.add('edit');
+    editBtn.innerHTML = 'EDIT';
 
-        const deleteBtn = document.createElement('button');
-        deleteBtn.classList.add('delete');
-        deleteBtn.innerHTML = '<i class="fas fa-times"></i>';
+    const deleteBtn = document.createElement('button');
+    deleteBtn.classList.add('delete');
+    deleteBtn.innerHTML = '<i class="fas fa-times"></i>';
 
-        toolsPnael.appendChild(completeBtn);
-        toolsPnael.appendChild(editBtn);
-        toolsPnael.appendChild(deleteBtn);
-    //  <div class="tools">
-    //    <button class="complete"><i class="fas fa-check"></i></button>
-    //    <button class="edit">EDIT</button>
-    //    <button class="delete"><i class="fas fa-times"></i></button>
-    //  </div>
+    toolsPnael.appendChild(completeBtn);
+    toolsPnael.appendChild(editBtn);
+    toolsPnael.appendChild(deleteBtn);
+}
+
+const chceckClick = (e) => {
+    if (e.target.classList.value !== '') {
+        if (e.target.closest('button').classList.contains('complete')) {
+
+            e.target.closest('li').classList.toggle('completed')
+            e.target.closest('button').classList.toggle('completed')
+
+        } else if (e.target.closest('button').classList.contains('edit')) {
+            editTask(e)
+        } else if (e.target.closest('button').classList.contains('delete')) {
+            deliteTask(e)
+        }
+    }
+}
+const editTask = (e) => {
+    const oldTodo = e.target.closest('li').id;
+    $editedTodo = document.getElementById(oldTodo)
+    $popupInput.value = $editedTodo.firstChild.textContent
+    $popup.style.display = 'flex'
 
 }
+const changeTodo = () => {
+    if ($popupInput.value !== '') {
+        $editedTodo.firstChild.textContent = $popupInput.value
+        $popup.style.display = 'none'
+        $popupInfo.innerHTML = ''
+    } else {
+        $popupInfo.innerHTML = 'Musisz podać jakąś treść!'
+    }
+}
+const deliteTask = (e) => {
+    const deleteTodo = e.target.closest('li')
+    deleteTodo.remove()
+
+    if ($allTasks.length === 0) {
+        $alertInfo.innerText = 'Brak zadań na liście.'
+    }
+}
+
+const closePopup = () => {
+    $popup.style.display = 'none'
+    $popupInfo.innerHTML = ''
+}
+
 document.addEventListener('DOMContentLoaded', main);
