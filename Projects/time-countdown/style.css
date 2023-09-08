@@ -11,6 +11,7 @@ body {
     min-height: 100vh;
     font-family: 'Montserrat', sans-serif;
     background-color: rgba(199, 198, 198, 0.884);
+    margin-left: -430px;
 }
 
 .counter-app {
@@ -98,7 +99,7 @@ h3 {
 }
 
 .settings {
-    display: none; 
+    display: flex; 
     flex-direction: column;
     justify-content: center;
     align-items: center;
