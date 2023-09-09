@@ -132,7 +132,7 @@ function toggleTheme(theme) {
     if (theme === 'dark') {
         body.style.backgroundColor = 'rgb(25, 27, 51)';
         handle.style.transform = 'translateX(30px)';
-        handle.innerHTML = '<i class="far fa-moon"></i>';
+        handle.innerHTML = '<i class="fa-solid fa-moon"></i>';
     } else {
         body.style.backgroundColor = '#fff';
         handle.style.transform = 'translateX(0)';
