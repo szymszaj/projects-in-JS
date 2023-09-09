@@ -123,5 +123,26 @@ const closePopup = () => {
     $popup.style.display = 'none'
     $popupInfo.innerHTML = ''
 }
+//moty tła 
+const slider = document.getElementById('theme-slider');
+const handle = document.querySelector('.slider-handle');
 
+function toggleTheme(theme) {
+    const body = document.body;
+    if (theme === 'dark') {
+        body.style.backgroundColor = 'rgb(25, 27, 51)';
+        handle.style.transform = 'translateX(30px)';
+        handle.innerHTML = '<i class="far fa-moon"></i>';
+    } else {
+        body.style.backgroundColor = '#fff';
+        handle.style.transform = 'translateX(0)';
+        handle.innerHTML = '<i class="fas fa-sun"></i>';
+    }
+}
+
+slider.addEventListener('click', () => {
+    const body = document.body;
+    const currentTheme = body.style.backgroundColor === 'rgb(25, 27, 51)' ? 'light' : 'dark';
+    toggleTheme(currentTheme);
+});
 document.addEventListener('DOMContentLoaded', main);

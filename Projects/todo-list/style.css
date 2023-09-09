@@ -7,10 +7,10 @@
 :root {
     --deep-dark: rgb(26, 26, 26);
     --light-dark: rgb(79, 82, 92);
-    --light-blue: #017c43;
-    /* --light-blue: rgb(0, 132, 255); */
-    --dark-blue: #017c43;
-    /* --dark-blue: rgb(2, 84, 161); */
+    /* --light-blue: #017c43; */
+    --light-blue: rgb(0, 132, 255);
+    /* --dark-blue: #017c43; */
+    --dark-blue: rgb(2, 84, 161);
     --light: rgb(245, 245, 245);
     --white: #fff;
     --body: #e2e2e2ce;
@@ -43,7 +43,7 @@ h1 {
     padding: 40px;
     border-radius: 5px 5px 0 0;
     /* background-image: linear-gradient(340deg, #005bec 1%, #159abe 100%); */
-    background-image: linear-gradient(340deg, #017c43 1%, #159abe 100%);
+    background-image: linear-gradient(340deg, #045de9 0%, #09c6f9 100%);
 }
 
 .todo-input {
@@ -226,3 +226,39 @@ h1 {
       bottom: 90px; /* Przesuń animację na górę ekranu */
     }
   }
+
+/* pasek motywu */
+.slider-container {
+    position: fixed;
+    bottom: 870px;
+    left: 1840px;
+    transform: translateX(-50%);
+}
+.slider {
+    width: 60px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: #ccc;
+    position: relative;
+    cursor: pointer;
+}
+.slider-handle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#moon-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+#sun-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
