@@ -11,6 +11,13 @@
     ></script>
   </head>
   <body>
+     <div class="slider-container">
+      <div class="slider" id="theme-slider">
+          <div class="slider-handle"><i class="fas"></i></div>
+      </div>
+  </div>
+  <button class="report-button" id="report-button"><p>Raporty</p></button>
+
     <div class="pomodoro">
         <h1>Pomodoro Timer</h1>
         <i class="fa-solid fa-gear" id="settings-icon"></i>
@@ -23,11 +30,7 @@
             <label for="task-name">Task Name:</label>
             <input type="text" id="task-name" placeholder="Task Name">
             <button id="apply-settings">Apply</button>
-            <label for="theme-selector">Theme:</label>
-            <select id="theme-selector">
-                <option value="light">Light</option>
-                <option value="dark">Dark</option>
-            </select>
+
         </div>
         <div class="timer">
             <div class="time" id="display">25:00</div>
@@ -36,8 +39,8 @@
                 <button id="reset">Reset</button>
             </div>
         </div>
-    </div>
+    </div> 
 
-    <script src="script.js"></script>
+    <script src="app.js"></script>
   </body>
 </html>
