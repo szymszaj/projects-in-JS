@@ -11,12 +11,26 @@
     ></script>
   </head>
   <body>
-     <div class="slider-container">
+    <div class="slider-container">
       <div class="slider" id="theme-slider">
           <div class="slider-handle"><i class="fas"></i></div>
       </div>
-  </div>
-  <button class="report-button" id="report-button"><p>Raporty</p></button>
+    </div>
+    <button class="report-button" id="report-button"><p>Raporty</p></button>
+    <div class="report-container" id="report-container">
+      <h2>Raporty</h2>
+      <table class="report-table" id="report-table">
+        <thead>
+          <tr>
+            <th>Czas</th>
+            <th>Zadanie</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Tutaj będą dodawane raporty dynamicznie -->
+        </tbody>
+      </table>
+    </div>
 
     <div class="pomodoro">
         <h1>Pomodoro Timer</h1>
@@ -30,7 +44,6 @@
             <label for="task-name">Task Name:</label>
             <input type="text" id="task-name" placeholder="Task Name">
             <button id="apply-settings">Apply</button>
-
         </div>
         <div class="timer">
             <div class="time" id="display">25:00</div>
