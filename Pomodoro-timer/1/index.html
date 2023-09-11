@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pomodoro Timer</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/8f1d2cfc6c.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="pomodoro">
+        <h1>Pomodoro Timer</h1>
+        <i class="fa-solid fa-gear" id="settings-icon"></i>
+        <div class="settings-panel" id="settings-panel">
+            <h2>Timer Settings</h2>
+            <label for="pomodoro-duration">Pomodoro Duration (minutes):</label>
+            <input type="number" id="pomodoro-duration" min="1" value="25">
+            <label for="clock-color">Clock Color:</label>
+            <input type="color" id="clock-color" value="#007BFF">
+            <label for="task-name">Task Name:</label>
+            <input type="text" id="task-name" placeholder="Task Name">
+            <button id="apply-settings">Apply</button>
+            <label for="theme-selector">Theme:</label>
+            <select id="theme-selector">
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+            </select>
+        </div>
+        <div class="timer">
+            <div class="time" id="display">25:00</div>
+            <div class="buttons">
+                <button id="start">Start</button>
+                <button id="reset">Reset</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

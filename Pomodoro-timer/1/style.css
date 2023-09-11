@@ -1,0 +1,83 @@
+
+
+body {
+    transition: background-color 0.5s;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.pomodoro {
+    margin: 20px auto;
+    max-width: 400px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.5s;
+}
+h1 {
+    font-size: 24px;
+}
+.timer {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.time {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #0056b3;
+}
+.controls {
+    margin-top: 20px;
+}
+label {
+    font-size: 16px;
+}
+input[type="number"], input[type="color"], input[type="text"] {
+    width: 90%;
+    padding: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.settings-panel {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 240px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    transition: left 0.3s ease-in-out, background-color 0.5s;
+}
+#settings-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.fa-solid{
+    transition: transform .4s, color .2s;
+}
+.fa-solid:hover{
+    transform: scale(0.9);
+    color: #3b2e2e;
+}
