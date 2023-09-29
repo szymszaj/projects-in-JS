@@ -18,3 +18,11 @@ for (let i = 0; i < people.length; i++) {
     const person = people[i]
     logPersonInfo(person)
 }
+
+people.forEach((induce) => {
+    console.log(induce);
+})
+
+people.forEach((person) => {
+    logPersonInfo(person);
+})
