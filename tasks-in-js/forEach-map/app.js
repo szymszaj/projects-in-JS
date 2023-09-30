@@ -23,6 +23,20 @@ people.forEach((induce) => {
     console.log(induce);
 })
 
-people.forEach((person, index, arr) => {
-    logPersonInfo(person, index, arr);
-})
+// people.forEach((person, index, arr) => {
+//     logPersonInfo(person, index, arr);
+// })
+
+
+people.forEach(logPersonInfo)
+
+const richPeople = []
+for (let i = 0; i< people.length; i++){
+    const person = people[i]
+    if(person.solary > 5000){
+        richPeople.push(person)
+    }
+}
+
+console.log("Rich people");
+console.log(richPeople);
