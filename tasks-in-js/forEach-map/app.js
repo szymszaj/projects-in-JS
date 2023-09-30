@@ -30,13 +30,26 @@ people.forEach((induce) => {
 
 people.forEach(logPersonInfo)
 
-const richPeople = []
-for (let i = 0; i< people.length; i++){
-    const person = people[i]
-    if(person.solary > 5000){
-        richPeople.push(person)
-    }
-}
+// const richPeople = []
+// for (let i = 0; i < people.length; i++) {
+//     const person = people[i]
+//     if (person.solary > 5000) {
+//         richPeople.push(person)
+//     }
+// }
+const richPeople = people.filter((person) => person.solary > 5000)
 
 console.log("Rich people");
 console.log(richPeople);
+
+// const polishPeople = []
+// for (let i = 0; i<people.length; i++) {
+//     const person = people[i]
+//     if(person.country ==="Polska"){
+//         polishPeople.push(person)
+//     }
+// }
+
+const polishPeople = people.filter((person) => person.country === "Polska")
+console.log("Polish people");
+console.log(polishPeople);
