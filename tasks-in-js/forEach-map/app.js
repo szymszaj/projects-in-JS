@@ -10,19 +10,19 @@ const people = [
     { name: 'Mila', lastName: 'Klars', country: 'Australia', solary: 50300 },
 ];
 
-const logPersonInfo = (person) => {
-    console.log(`${person.name} ${person.lastName}, kraj: ${person.country}`);
+const logPersonInfo = (person, index, arr) => {
+    console.log(`${index + 1} z ${arr.length}: ${person.name} ${person.lastName}, kraj: ${person.country}`);
 }
 
-for (let i = 0; i < people.length; i++) {
-    const person = people[i]
-    logPersonInfo(person)
-}
+// for (let i = 0; i < people.length; i++) {
+//     const person = people[i]
+//     logPersonInfo(person, i, people)
+// }
 
 people.forEach((induce) => {
     console.log(induce);
 })
 
-people.forEach((person) => {
-    logPersonInfo(person);
+people.forEach((person, index, arr) => {
+    logPersonInfo(person, index, arr);
 })
