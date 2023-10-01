@@ -1,6 +1,6 @@
 const people = [
     { name: 'Jan', lastName: 'Kowalski', country: 'Polska', solary: 1250 },
-    { name: 'Anna', lastName: 'Brown', country: 'Niemcy', solary: 9855 },
+    { name: 'Anna', lastName: 'Brown', country: 'Niemcy', solary: 955 },
     { name: 'Szymon', lastName: 'Smith', country: 'USA', solary: 500 },
     { name: 'Wojetek', lastName: 'Silva', country: 'UK', solary: 45000 },
     { name: 'Justyna', lastName: 'Enmena', country: 'Francja', solary: 8900 },
@@ -37,19 +37,15 @@ people.forEach(logPersonInfo)
 //         richPeople.push(person)
 //     }
 // }
-const richPeople = people.filter((person) => person.solary > 5000)
+
 
 console.log("Rich people");
-console.log(richPeople);
 
-// const polishPeople = []
-// for (let i = 0; i<people.length; i++) {
-//     const person = people[i]
-//     if(person.country ==="Polska"){
-//         polishPeople.push(person)
-//     }
-// }
+
+people.filter((person) => person.solary > 5000).forEach(logPersonInfo)
+
 
 const polishPeople = people.filter((person) => person.country === "Polska")
 console.log("Polish people");
 console.log(polishPeople);
+
