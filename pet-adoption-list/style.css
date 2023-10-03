@@ -63,8 +63,8 @@ body {
 .filter-nav a {
     text-decoration: none;
     padding: 9px;
-color: var(--main-color);
-border: 1px solid #6258a7;
-border-radius: 8px ;
-margin: 4px;
+    color: var(--main-color);
+    border: 1px solid #6258a7;
+    border-radius: 8px;
+    margin: 4px;
 }
