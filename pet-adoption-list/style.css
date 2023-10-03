@@ -18,6 +18,8 @@ body {
     padding: 50px 30px;
     text-align: center;
     position: relative;
+    margin-bottom: 15px;
+
 }
 
 .hero::before {
@@ -27,7 +29,17 @@ body {
     left: 0;
     right: 0;
     height: 10px;
-    background: linear-gradient(to left, rgb(0, 4, 255),rgb(50, 46, 66)); 
+    background: linear-gradient(to left, rgb(0, 4, 255), rgb(50, 46, 66));
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: linear-gradient(to right, rgb(0, 4, 255), rgb(50, 46, 66));
 }
 
 .hero h1 {
@@ -40,4 +52,19 @@ body {
     font-weight: normal;
     font-size: 1.7rem;
     margin: 0;
+}
+
+.filter-nav {
+    display: flex;
+    justify-content: center;
+
+}
+
+.filter-nav a {
+    text-decoration: none;
+    padding: 9px;
+color: var(--main-color);
+border: 1px solid #6258a7;
+border-radius: 8px ;
+margin: 4px;
 }
