@@ -6,6 +6,7 @@ html,
 body {
     padding: 0;
     margin: 0;
+    background-color: rgb(225, 226, 243);
 }
 
 body {
@@ -57,6 +58,7 @@ body {
 .filter-nav {
     display: flex;
     justify-content: center;
+    margin-bottom: 10px;
 
 }
 
@@ -67,4 +69,62 @@ body {
     border: 1px solid #6258a7;
     border-radius: 8px;
     margin: 4px;
+}
+
+.animals {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.animal-card {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    background-color: white;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.animal-card-photo {
+    order: 1;
+    grid-row: 1;
+    overflow: hidden;
+}
+
+.animal-card-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .3s ease-in-out;
+}
+
+.animal-card-photo:hover img {
+    transform: rotate(20deg) scale(1.4);
+}
+
+.animal-card-text {
+    padding: 20px 25px;
+}
+
+.animal-card-text h3 {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-size: 1.8rem;
+}
+.animal-card-text small{
+    color: rgb(176, 176, 176)
+}
+.animal-card-text p{
+    margin: .8rem 0;
+    padding: 0;
+    line-height: 1.5;
+}
+.primary-btn {
+    background: linear-gradient(#3c3488, #2d1b46);
+    padding: 10px;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
 }
