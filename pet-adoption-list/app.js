@@ -33,6 +33,7 @@ pets.forEach(pet => {
     clone.querySelector(".species").textContent = pet.species
     clone.querySelector(".description").textContent = pet.description
     clone.querySelector(".name").textContent = pet.name
+    clone.querySelector(".primary-btn").href = `https://learnwebcode.github.io/pet-adoption-data/pets/${pet.id}/`
 
     wrapper.appendChild(clone)
 })
