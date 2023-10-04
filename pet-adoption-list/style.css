@@ -70,7 +70,17 @@ body {
     border-radius: 8px;
     margin: 4px;
 }
-
+.filter-nav a:hover {
+    background-color: #7e76ca;
+}
+.filter-nav .active {
+    background-color: #1e193f;
+    color: white;
+}
+.filter-nav .active:hover {
+    background-color: #1e193f;
+    cursor: default;
+}
 .animals {
     max-width: 700px;
     margin: 0 auto;
