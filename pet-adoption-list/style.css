@@ -89,7 +89,7 @@ body {
 .animal-card {
     display: grid;
     margin-bottom: 20px;
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: 100%;
     background-color: white;
     border-radius: 20px;
     overflow: hidden;
@@ -138,4 +138,12 @@ body {
     border-radius: 5px;
     text-decoration: none;
     display: inline-block;
+}
+@media screen and (min-width: 768px){
+    .animal-card{
+        grid-template-columns: 200px 1fr;
+    }
+    .hero h1{
+        font-size: 6rem;
+    }
 }
