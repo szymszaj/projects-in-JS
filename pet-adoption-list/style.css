@@ -70,17 +70,21 @@ body {
     border-radius: 8px;
     margin: 4px;
 }
+
 .filter-nav a:hover {
     background-color: #7e76ca;
 }
+
 .filter-nav .active {
     background-color: #1e193f;
     color: white;
 }
+
 .filter-nav .active:hover {
     background-color: #1e193f;
     cursor: default;
 }
+
 .animals {
     max-width: 700px;
     margin: 0 auto;
@@ -123,14 +127,17 @@ body {
     font-weight: normal;
     font-size: 1.8rem;
 }
-.animal-card-text small{
+
+.animal-card-text small {
     color: rgb(176, 176, 176)
 }
-.animal-card-text p{
+
+.animal-card-text p {
     margin: .8rem 0;
     padding: 0;
     line-height: 1.5;
 }
+
 .primary-btn {
     background: linear-gradient(#3c3488, #2d1b46);
     padding: 10px;
@@ -139,17 +146,21 @@ body {
     text-decoration: none;
     display: inline-block;
 }
+
 .only-large-screen {
     display: none;
 }
-@media screen and (min-width: 768px){
-    .animal-card{
+
+@media screen and (min-width: 768px) {
+    .animal-card {
         grid-template-columns: 200px 1fr;
     }
-    .hero h1{
+
+    .hero h1 {
         font-size: 6rem;
     }
-    .only-large-screen{
+
+    .only-large-screen {
         display: inline;
     }
 }
