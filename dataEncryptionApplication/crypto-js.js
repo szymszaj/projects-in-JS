@@ -1,0 +1,4 @@
+- index.html
+- script.js
+- crypto-js/  // Folder zawierający bibliotekę CryptoJS
+  - crypto-js.js
