@@ -1,8 +1,18 @@
 const words = [
-    { polish: "czesc", english: "hi" },
-    // { polish: "pies", english: "dog" },
-    // { polish: "dom", english: "house" },
-    // { polish: "samochód", english: "car" }
+    { polish: "firma macierzysta", english: "parent company" },
+    { polish: "prowadzić biznes", english: "run a business" },
+    { polish: "jednostka zależna", english: "subsidiary" },
+    { polish: "autor", english: "author" },
+    { polish: "report to somebody", english: "raportować komuś" },
+    { polish: "look after", english: "opiekować się" },
+    { polish: "deal with somebody", english: "zajmować się kimś" },
+    { polish: "be responsible for something", english: "być odpowiedzialnym za coś" },
+    { polish: "be in charge of somebody", english: "być szefem kogoś" },
+    { polish: "be retired", english: "być na emeryturze" },
+    { polish: "work shifts", english: "pracować na zmiany" },
+    { polish: "working hours", english: "godziny pracy" },
+    { polish: "working days", english: "dni robocze" },
+    { polish: "zaniedbywać", english: "neglect" }
 ];
 
 let currentIndex = 0;
@@ -22,7 +32,7 @@ function showCurrentWord() {
     } else {
         wordInPolish.textContent = "Wszystkie słowa zostały przetłumaczone!";
         tryAgainButton.style.display = "block"; // Wyświetl przycisk "Spróbuj ponownie"
-        tryAgainButton.addEventListener("click", function() {
+        tryAgainButton.addEventListener("click", function () {
             currentIndex = 0; // Zresetuj licznik do zera
             showCurrentWord();
             tryAgainButton.style.display = ""
@@ -35,18 +45,18 @@ function showCurrentWord() {
 
 showCurrentWord();
 
-translationInput.addEventListener("keypress", function(event) {
+translationInput.addEventListener("keypress", function (event) {
     if (event.key === "Enter") {
         checkTranslation();
     }
 });
 
-checkAnswerButton.addEventListener("click", function() {
+checkAnswerButton.addEventListener("click", function () {
     showCurrentWord();
     checkTranslation();
 });
 
-tryAgainButton.addEventListener("click", function() {
+tryAgainButton.addEventListener("click", function () {
     location.reload(); // Odśwież stronę, rozpocznij od nowa
 });
 
