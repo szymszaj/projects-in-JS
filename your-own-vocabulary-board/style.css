@@ -1,24 +1,45 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 body {
+    position: relative;
     text-align: center;
     font-family: Arial, sans-serif;
+    background-image: linear-gradient(315deg, #003283de 26%, #2d4247d5 84%);
+    /* background-color: rgb(233, 233, 233); */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 1.4em;
 }
 
 #word-container {
-    border: 2px solid #000;
+    background-color: #00328357;
     padding: 20px;
     display: inline-block;
+    width: 34em;
+    height: 15em;
+    border-radius: .8em;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4); /* Dodaj cień po każdej stronie i efekt głębi */
 }
-
 #word-in-polish {
-    font-size: 24px;
+    font-size: 1.8em;
 }
 
-#translation {
+.translation {
     margin: 10px;
-    padding: 5px;
-    font-size: 16px;
+    padding: 14px;
+    font-size: 1.2em;
+    border-radius: 15px;
 }
-
 .correct {
     color: rgb(0, 0, 0);
 }
@@ -26,7 +47,93 @@ body {
 .incorrect {
     color: red;
 }
-.return-btn {
-    display: none;
+.check-btn {
+    position: absolute;
+    top: 270px;
+    right: 790px;
     border-radius: 15px;
+    border: none;
+    background-color: #20a120;
+    color: black;
+    overflow: hidden;
+    font-size: 1.2em;
+    transition: transform .3s, background-color .3s;
+    cursor: pointer;
+}
+.check-btn:hover {
+    transform: scale(0.95);
+    background-color: #20a120c0;
+}
+
+.correct {
+    color: #20a120;
+}
+.return-btn {
+    border-radius: 8px;
+    background-color: #20a120;
+    color: #FFFFFF;
+    text-align: center;
+    align-items: center;
+    font-size: 0.8em;
+    padding: 10px 5px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.5s;
+    text-transform: uppercase;
+    cursor: pointer;
+    bottom: -20px;
+    border: none;
+    display: none;
+}
+
+.return-btn:hover {
+    background-color: rgb(189, 0, 0);
+}
+
+.return-btn:first-child {
+    padding-left: 10px;
+    transition: all 0.5s;
+}
+
+.return-btn:hover :first-child {
+    padding-left: 0px;
+}
+
+.return-btn :last-child {
+    opacity: 0;
+    transition: all 0.5s;
+    padding-left: 0px;
+}
+
+.return-btn:hover :last-child {
+    opacity: 1;
+    padding-left: 10px;
+}
+
+@media (max-width: 576px) {
+    h1 {
+        font-size: 1.2em;
+    }
+
+    #word-container {
+        max-width: 100%;
+        padding: 35px;
+        height: auto;
+    }
+
+    #word-in-polish {
+        font-size: 1.2em;
+    }
+
+    .translation {
+        margin: 5px;
+        padding: 15px;
+        font-size: 11px;
+    }
+
+    .return-btn{
+        bottom: -15px;
+        right: 10px; 
+    }
+    
 }
