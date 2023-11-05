@@ -1,0 +1,32 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+#word-container {
+    border: 2px solid #000;
+    padding: 20px;
+    display: inline-block;
+}
+
+#word-in-polish {
+    font-size: 24px;
+}
+
+#translation {
+    margin: 10px;
+    padding: 5px;
+    font-size: 16px;
+}
+
+.correct {
+    color: rgb(0, 0, 0);
+}
+
+.incorrect {
+    color: red;
+}
+.return-btn {
+    display: none;
+    border-radius: 15px;
+}
