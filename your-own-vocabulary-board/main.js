@@ -1,0 +1,66 @@
+const words = [
+    { polish: "czesc", english: "hi" },
+    // { polish: "pies", english: "dog" },
+    // { polish: "dom", english: "house" },
+    // { polish: "samochód", english: "car" }
+];
+
+let currentIndex = 0;
+
+const wordInPolish = document.getElementById("word-in-polish");
+const translationInput = document.getElementById("translation");
+const validationMsg = document.getElementById("validation-msg");
+const checkAnswerButton = document.getElementById("check-answer");
+const tryAgainButton = document.getElementById("try-again"); // Dodaj przycisk "Spróbuj ponownie"
+
+function showCurrentWord() {
+    if (currentIndex < words.length) {
+        wordInPolish.textContent = words[currentIndex].polish;
+        translationInput.value = "";
+        validationMsg.textContent = "";
+        translationInput.classList.remove("correct", "incorrect");
+    } else {
+        wordInPolish.textContent = "Wszystkie słowa zostały przetłumaczone!";
+        tryAgainButton.style.display = "block"; // Wyświetl przycisk "Spróbuj ponownie"
+        tryAgainButton.addEventListener("click", function() {
+            currentIndex = 0; // Zresetuj licznik do zera
+            showCurrentWord();
+            tryAgainButton.style.display = ""
+        });
+        // setTimeout(function () {
+        //     location.reload(); // Odśwież stronę po pewnym czasie (możesz dostosować czas)
+        // }, 3000);
+    }
+}
+
+showCurrentWord();
+
+translationInput.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        checkTranslation();
+    }
+});
+
+checkAnswerButton.addEventListener("click", function() {
+    showCurrentWord();
+    checkTranslation();
+});
+
+tryAgainButton.addEventListener("click", function() {
+    location.reload(); // Odśwież stronę, rozpocznij od nowa
+});
+
+function checkTranslation() {
+    const translation = translationInput.value;
+    const currentWord = words[currentIndex];
+
+    if (translation.toLowerCase() === currentWord.english) {
+        currentIndex++;
+        showCurrentWord();
+        translationInput.classList.add("correct");
+    } else {
+        validationMsg.textContent = currentWord.english;
+        translationInput.classList.add("incorrect");
+        translationInput.value = "";
+    }
+}
