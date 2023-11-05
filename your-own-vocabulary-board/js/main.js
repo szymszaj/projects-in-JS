@@ -1,20 +1,19 @@
 const words = [
-    { polish: "firma macierzysta", english: "parent company" },
-    { polish: "prowadzić biznes", english: "run a business" },
-    { polish: "jednostka zależna", english: "subsidiary" },
-    { polish: "autor", english: "author" },
-    { polish: "report to somebody", english: "raportować komuś" },
-    { polish: "look after", english: "opiekować się" },
-    { polish: "deal with somebody", english: "zajmować się kimś" },
-    { polish: "be responsible for something", english: "być odpowiedzialnym za coś" },
-    { polish: "be in charge of somebody", english: "być szefem kogoś" },
-    { polish: "be retired", english: "być na emeryturze" },
-    { polish: "work shifts", english: "pracować na zmiany" },
-    { polish: "working hours", english: "godziny pracy" },
-    { polish: "working days", english: "dni robocze" },
-    { polish: "zaniedbywać", english: "neglect" }
+    { english: "parent company", polish: "firma macierzysta" },
+    { english: "run a business", polish: "prowadzić biznes" },
+    { english: "subsidiary", polish: "jednostka zależna" },
+    { english: "technical writer", polish: "autor (instrukcji)" },
+    { english: "report to somebody", polish: "raportować komuś" },
+    { english: "look after", polish: "opiekować się" },
+    { english: "deal with somebody", polish: "zajmować się kimś" },
+    { english: "be responsible for something", polish: "być odpowiedzialnym za coś" },
+    { english: "be in charge of somebody", polish: "być szefem kogoś" },
+    { english: "be retired", polish: "być na emeryturze" },
+    { english: "work shifts", polish: "pracować na zmiany" },
+    { english: "working hours", polish: "godziny pracy" },
+    { english: "working days", polish: "dni robocze" },
+    { english: "neglect", polish: "zaniedbywać" }
 ];
-
 let currentIndex = 0;
 
 const wordInPolish = document.getElementById("word-in-polish");
