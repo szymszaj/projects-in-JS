@@ -14,6 +14,7 @@ const words = [
     { english: "working days", polish: "dni robocze" },
     { english: "neglect", polish: "zaniedbywać" }
 ];
+
 let currentIndex = 0;
 
 const wordInPolish = document.getElementById("word-in-polish");
@@ -30,15 +31,12 @@ function showCurrentWord() {
         translationInput.classList.remove("correct", "incorrect");
     } else {
         wordInPolish.textContent = "Wszystkie słowa zostały przetłumaczone!";
-        tryAgainButton.style.display = "block"; // Wyświetl przycisk "Spróbuj ponownie"
+        tryAgainButton.style.display = "block"; // Wyświetl przycisk "Spróbuj ponownie" po zakończonej sesji
         tryAgainButton.addEventListener("click", function () {
             currentIndex = 0; // Zresetuj licznik do zera
             showCurrentWord();
             tryAgainButton.style.display = ""
         });
-        // setTimeout(function () {
-        //     location.reload(); // Odśwież stronę po pewnym czasie (możesz dostosować czas)
-        // }, 3000);
     }
 }
 
@@ -56,7 +54,7 @@ checkAnswerButton.addEventListener("click", function () {
 });
 
 tryAgainButton.addEventListener("click", function () {
-    location.reload(); // Odśwież stronę, rozpocznij od nowa
+    location.reload(); // Odśwież stronę
 });
 
 function checkTranslation() {
