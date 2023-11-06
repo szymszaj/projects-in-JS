@@ -3,12 +3,12 @@
     margin: 0;
     padding: 0;
 }
+
 body {
     position: relative;
     text-align: center;
     font-family: Arial, sans-serif;
     background-image: linear-gradient(315deg, #003283de 26%, #2d4247d5 84%);
-    /* background-color: rgb(233, 233, 233); */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -28,8 +28,9 @@ h1 {
     width: 34em;
     height: 15em;
     border-radius: .8em;
-    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4); /* Dodaj cień po każdej stronie i efekt głębi */
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
 }
+
 #word-in-polish {
     font-size: 1.8em;
 }
@@ -40,6 +41,7 @@ h1 {
     font-size: 1.2em;
     border-radius: 15px;
 }
+
 .correct {
     color: rgb(0, 0, 0);
 }
@@ -47,6 +49,7 @@ h1 {
 .incorrect {
     color: red;
 }
+
 .check-btn {
     position: absolute;
     top: 270px;
@@ -60,6 +63,7 @@ h1 {
     transition: transform .3s, background-color .3s;
     cursor: pointer;
 }
+
 .check-btn:hover {
     transform: scale(0.95);
     background-color: #20a120c0;
@@ -68,6 +72,7 @@ h1 {
 .correct {
     color: #20a120;
 }
+
 .return-btn {
     border-radius: 8px;
     background-color: #20a120;
@@ -131,9 +136,9 @@ h1 {
         font-size: 11px;
     }
 
-    .return-btn{
+    .return-btn {
         bottom: -15px;
-        right: 10px; 
+        right: 10px;
     }
-    
+
 }
