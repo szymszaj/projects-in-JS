@@ -1,7 +1,7 @@
-var popyt = 123; // Przykładowa wartość popytu
-var podaż = 431; // Przykładowa wartość podaży
-var faktycznaProdukcja = 0; // Przykładowa początkowa wartość faktycznej produkcji
-var potencjalnaProdukcja = 120; // Przykładowa wartość poziomu potencjalnego
+var popyt = 130; // Przykładowa wartość popytu
+var podaż = 100; // Przykładowa wartość podaży
+var faktycznaProdukcja = 50; // Przykładowa początkowa wartość faktycznej produkcji
+var potencjalnaProdukcja = 800; // Przykładowa wartość poziomu potencjalnego
 
 
 if (faktycznaProdukcja < potencjalnaProdukcja) {
