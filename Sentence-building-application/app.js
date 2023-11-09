@@ -1,32 +1,52 @@
-// Pobieramy referencje do elementów HTML
 const dataInput = document.getElementById('data-input');
 const analyzeButton = document.getElementById('analyze-button');
 const analysisResults = document.getElementById('analysis-results');
 const cancelBtn = document.getElementById('cancelbtn');
 
-// Funkcja generująca zdanie
-const generateSentence = (inputText) => {
-  // Rozdzielamy tekst na słowa
-  const words = inputText.split(/\s+/).filter(word => word.length > 0);
 
-  if (words.length === 0) {
-    return "Proszę wprowadzić co najmniej jedno słowo.";
-  }
+const generateSentenceWithAPI = async (inputText) => {
+    if (inputText.trim() === '') {
+        analysisResults.textContent = "Proszę wprowadzić co najmniej jedno słowo.";
+        return;
+    }
 
-  // Generujemy zdanie na podstawie wprowadzonych słów
-  const result = "Oto zdanie z wprowadzonych słów: " + words.join(' ') + ".";
-  return result;
+
+    const apiKey = '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';
+    // const apiUrl = 'https://api.openai.com/v1/engines/davinci/completions';
+
+
+    const requestBody = {
+        prompt: inputText,
+        max_tokens: 50, // Maksymalna liczba tokenów w odpowiedzi
+    };
+
+    const requestOptions = {
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${apiKey}`,
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestBody),
+    };
+
+    try {
+        const response = await fetch(apiUrl, requestOptions);
+        const responseData = await response.json();
+
+        analysisResults.textContent = responseData.choices[0].text;
+    } catch (error) {
+        console.error('Błąd API:', error);
+        analysisResults.textContent = "Wystąpił błąd podczas komunikacji z API.";
+    }
 };
 
-// Obsługa przycisku "Twórz"
 analyzeButton.addEventListener('click', () => {
-  const inputText = dataInput.value;
-  const generatedSentence = generateSentence(inputText);
-  analysisResults.textContent = generatedSentence;
+    const inputText = dataInput.value;
+    generateSentenceWithAPI(inputText);
 });
 
-// Obsługa przycisku "Cofnij"
+
 cancelBtn.addEventListener('click', () => {
-  dataInput.value = ''; // Czyścimy pole do wprowadzania tekstu
-  analysisResults.textContent = ''; // Czyścimy wyniki analizy
+    dataInput.value = '';
+    analysisResults.textContent = '';
 });
