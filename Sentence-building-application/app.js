@@ -12,8 +12,6 @@ const generateSentenceWithAPI = async (inputText) => {
 
 
     const apiKey = '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';
-    // const apiUrl = 'https://api.openai.com/v1/engines/davinci/completions';
-
 
     const requestBody = {
         prompt: inputText,
