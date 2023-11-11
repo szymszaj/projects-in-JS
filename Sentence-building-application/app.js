@@ -3,22 +3,39 @@ const analyzeButton = document.getElementById('analyze-button');
 const analysisResults = document.getElementById('analysis-results');
 const cancelBtn = document.getElementById('cancelbtn');
 
-const wordsArray = ["Słowo1", "Słowo2", "Słowo3", "Słowo4", "Słowo5", /* ... dodaj więcej słów ... */];
+const wordsArray = ["iuiu", "Siuio2", "iu", "iu", "Słowdfbdvgbdo5","nie chce teraz iść"];
 
-const generateRandomSentence = () => {
-    if (wordsArray.length === 0) {
-        analysisResults.textContent = "Brak dostępnych słów do wygenerowania zdania.";
+const generateSentence = () => {
+    const inputText = dataInput.value.trim();
+
+    if (inputText === '') {
+        analysisResults.textContent = "Proszę wprowadzić co najmniej jedno słowo.";
         return;
     }
 
-    const sentenceLength = Math.floor(Math.random() * wordsArray.length) + 1;
-    const randomSentence = Array.from({ length: sentenceLength }, () => wordsArray[Math.floor(Math.random() * wordsArray.length)]).join(' ');
+    const enteredWords = inputText.split(/\s+/);
+    const mixedWords = shuffle([...wordsArray, ...enteredWords]);
+    const sentence = mixedWords.join(' ');
 
-    analysisResults.textContent = randomSentence;
+    analysisResults.textContent = `Zdanie: ${sentence}\nSłowa: ${enteredWords.join(', ')}`;
+};
+
+
+const shuffle = (array) => {
+    let currentIndex = array.length, randomIndex;
+
+    while (currentIndex !== 0) {
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+
+        [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+    }
+
+    return array;
 };
 
 analyzeButton.addEventListener('click', () => {
-    generateRandomSentence();
+    generateSentence();
 });
 
 cancelBtn.addEventListener('click', () => {
