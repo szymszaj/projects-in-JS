@@ -3,46 +3,23 @@ const analyzeButton = document.getElementById('analyze-button');
 const analysisResults = document.getElementById('analysis-results');
 const cancelBtn = document.getElementById('cancelbtn');
 
+const wordsArray = ["Słowo1", "Słowo2", "Słowo3", "Słowo4", "Słowo5", /* ... dodaj więcej słów ... */];
 
-const generateSentenceWithAPI = async (inputText) => {
-    if (inputText.trim() === '') {
-        analysisResults.textContent = "Proszę wprowadzić co najmniej jedno słowo.";
+const generateRandomSentence = () => {
+    if (wordsArray.length === 0) {
+        analysisResults.textContent = "Brak dostępnych słów do wygenerowania zdania.";
         return;
     }
 
+    const sentenceLength = Math.floor(Math.random() * wordsArray.length) + 1;
+    const randomSentence = Array.from({ length: sentenceLength }, () => wordsArray[Math.floor(Math.random() * wordsArray.length)]).join(' ');
 
-    const apiKey = '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';
-
-    const requestBody = {
-        prompt: inputText,
-        max_tokens: 50, // Maksymalna liczba tokenów w odpowiedzi
-    };
-
-    const requestOptions = {
-        method: 'POST',
-        headers: {
-            'Authorization': `Bearer ${apiKey}`,
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(requestBody),
-    };
-
-    try {
-        const response = await fetch(apiUrl, requestOptions);
-        const responseData = await response.json();
-
-        analysisResults.textContent = responseData.choices[0].text;
-    } catch (error) {
-        console.error('Błąd API:', error);
-        analysisResults.textContent = "Wystąpił błąd podczas komunikacji z API.";
-    }
+    analysisResults.textContent = randomSentence;
 };
 
 analyzeButton.addEventListener('click', () => {
-    const inputText = dataInput.value;
-    generateSentenceWithAPI(inputText);
+    generateRandomSentence();
 });
-
 
 cancelBtn.addEventListener('click', () => {
     dataInput.value = '';
