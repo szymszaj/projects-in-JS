@@ -3,7 +3,18 @@ const analyzeButton = document.getElementById('analyze-button');
 const analysisResults = document.getElementById('analysis-results');
 const cancelBtn = document.getElementById('cancelbtn');
 
-const wordsArray = ["iuiu", "Siuio2", "iu", "iu", "Słowdfbdvgbdo5","nie chce teraz iść"];
+const positiveSentences = [
+    "Tak, też tak myślę, że jest OK!",
+    "Uważam, że świetnie idzie, nie ma się co martwić!",
+    "Oczywiście, że tak! To świetny pomysł!",
+    "Mam pewność, że wszystko będzie w porządku.",
+    "Zdecydowanie tak, idziemy na całość!",
+    "Myślę, że to doskonały plan!",
+    "Jestem przekonany, że uda się zrealizować ten projekt.",
+    "Nie ma wątpliwości, że osiągniemy sukces!",
+    "Spokojnie, wszystko będzie dobrze.",
+    "Co ty chcesz z tym robić? Moim zdaniem, możemy osiągnąć naprawdę świetne rezultaty!"
+];
 
 const generateSentence = () => {
     const inputText = dataInput.value.trim();
@@ -14,12 +25,12 @@ const generateSentence = () => {
     }
 
     const enteredWords = inputText.split(/\s+/);
-    const mixedWords = shuffle([...wordsArray, ...enteredWords]);
-    const sentence = mixedWords.join(' ');
+    const mixedWords = shuffle([...positiveSentences, ...enteredWords]);
+    const selectedSentences = mixedWords.slice(0, 2);
+    const sentence = selectedSentences.join(' ');
 
-    analysisResults.textContent = `Zdanie: ${sentence}\nSłowa: ${enteredWords.join(', ')}`;
+    analysisResults.textContent = `Zdania: ${sentence}\n${enteredWords.join(', ')}`;
 };
-
 
 const shuffle = (array) => {
     let currentIndex = array.length, randomIndex;
