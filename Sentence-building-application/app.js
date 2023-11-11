@@ -26,10 +26,10 @@ const generateSentence = () => {
 
     const enteredWords = inputText.split(/\s+/);
     const mixedWords = shuffle([...positiveSentences, ...enteredWords]);
-    const selectedSentences = mixedWords.slice(0, 2);
-    const sentence = selectedSentences.join(' ');
+    const selectedSentences = mixedWords.slice(0, 2); 
+    const sentence = insertWords(selectedSentences, enteredWords);
 
-    analysisResults.textContent = `Zdania: ${sentence}\n${enteredWords.join(', ')}`;
+    analysisResults.textContent = `Generuje: ${sentence}`;
 };
 
 const shuffle = (array) => {
@@ -43,6 +43,15 @@ const shuffle = (array) => {
     }
 
     return array;
+};
+
+const insertWords = (sentences, words) => {
+    return sentences.map(sentence => {
+        const randomIndex = Math.floor(Math.random() * (sentence.split(' ').length + 1));
+        const before = sentence.split(' ').slice(0, randomIndex);
+        const after = sentence.split(' ').slice(randomIndex);
+        return [...before, ...words, ...after].join(' ');
+    }).join(' ');
 };
 
 analyzeButton.addEventListener('click', () => {
