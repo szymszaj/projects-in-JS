@@ -1,0 +1,9 @@
+Dla wartości liczbowych podanych w poprzednim przykładzie 
+(popyt = 2000, podaż = 1800, faktycznaProdukcja = 1500, potencjalnaProdukcja = 2500), otrzymamy wynik:
+
+1.Jeśli faktycznaProdukcja jest mniejsza niż potencjalnaProdukcja
+2.Jeśli popyt jest większy lub równy podaży, faktycznaProdukcja zostanie ustawiona na popyt (2000).
+3.W przeciwnym przypadku, faktycznaProdukcja zostanie ustawiona na podaż (1800).
+
+= Wynik zależy więc od relacji między popytem a podażą. Jeśli popyt jest większy lub równy podaży, wynik będzie równy popyt 
+(2000), w przeciwnym razie wynik będzie równy podaż (1800).
