@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Production App</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Aplikacja Produkcji</h1>
+      <form class="productionForm">
+        <label for="demand">Popyt:</label>
+        <input type="number" class="demand" value="2000" />
+
+        <label for="supply">Podaż:</label>
+        <input type="number" class="supply" value="1800" />
+
+        <label for="actualProduction">Faktyczna Produkcja:</label>
+        <input type="number" class="actualProduction" value="1500" />
+
+        <label for="potentialProduction">Potencjalna Produkcja:</label>
+        <input type="number" class="potentialProduction" value="2500" />
+
+        <button type="button" class="button" onclick="calculateProduction()">
+          Calculate Production
+        </button>
+      </form>
+
+      <div class="resultContainer">
+        <h2>Wyniki</h2>
+        <p class="productionResult">Rzeczywista wielkość produkcji:</p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
