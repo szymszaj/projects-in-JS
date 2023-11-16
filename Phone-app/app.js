@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
         
         const boxContent = document.createElement('div');
         boxContent.classList.add('box-content');
-        boxContent.textContent = `${boxCounter}`;
+        boxContent.innerHTML = `<i class="fas fa-paint-brush"></i> Edytowalny tekst ${boxCounter}`;
         
         newBox.appendChild(boxContent);
 
@@ -33,8 +33,30 @@ document.addEventListener('DOMContentLoaded', function () {
         editButton.textContent = 'Edytuj';
         editButton.classList.add('edit-button');
         editButton.addEventListener('click', function (event) {
-            // Tutaj dodaj kod obsługujący edycję boksu
-            alert(`Edytuj: ${boxContent.textContent}`);
+            // Pobierz istniejący tekst boksu
+            const currentText = boxContent.textContent;
+
+            // Utwórz element input do edycji tekstu
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.value = currentText;
+
+            // Zastąp zawartość boksu elementem input
+            boxContent.innerHTML = '';
+            boxContent.appendChild(input);
+
+            // Ustaw focus na inputie
+            input.focus();
+
+            // Obsłuż zdarzenie kliknięcia poza inputem
+            document.addEventListener('click', function handleOutsideClick(event) {
+                if (event.target !== input) {
+                    // Zastąp input ponownie tekstem po kliknięciu poza inputem
+                    boxContent.innerHTML = `<i class="fas fa-paint-brush"></i> ${input.value}`;
+                    document.removeEventListener('click', handleOutsideClick);
+                }
+            });
+
             event.stopPropagation();
         });
 
