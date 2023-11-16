@@ -18,7 +18,12 @@ document.addEventListener('DOMContentLoaded', function () {
     addBoxButton.addEventListener('click', function () {
         const newBox = document.createElement('div');
         newBox.classList.add('box');
-        newBox.textContent = `Box ${boxCounter}`;
+        
+        const boxContent = document.createElement('div');
+        boxContent.classList.add('box-content');
+        boxContent.textContent = `${boxCounter}`;
+        
+        newBox.appendChild(boxContent);
 
         // Dodajemy przyciski edycji i usuwania do każdego nowego boksu
         const boxOptionsContainer = document.createElement('div');
@@ -29,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
         editButton.classList.add('edit-button');
         editButton.addEventListener('click', function (event) {
             // Tutaj dodaj kod obsługujący edycję boksu
-            alert(`Edytuj: ${newBox.textContent}`);
+            alert(`Edytuj: ${boxContent.textContent}`);
             event.stopPropagation();
         });
 
