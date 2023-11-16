@@ -124,14 +124,20 @@ main {
     align-items: center;
     font-size: 20px;
 }
-/* Dodaj nowe style na odwracanie karty */
-#card {
-    /* ... reszta stylów ... */
-    transform-style: preserve-3d;
+/* Dodaj nowe style na odwracanie boksu */
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: #ecf0f1;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
     transition: transform 0.5s;
 }
 
-#card.flipped {
+.box.flipped {
     transform: rotateY(180deg);
 }
 
@@ -151,4 +157,9 @@ main {
     padding: 10px;
     border: none;
     cursor: pointer;
+}
+.box.flipped .box-options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }

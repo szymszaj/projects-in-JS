@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Dodajemy obsługę zdarzenia dla nowo utworzonego boksu
         newBox.addEventListener('click', function () {
-            card.classList.toggle('flipped');
+            newBox.classList.toggle('flipped');
         });
 
         boxesContainer.appendChild(newBox);
