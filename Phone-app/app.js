@@ -18,40 +18,39 @@ document.addEventListener('DOMContentLoaded', function () {
     addBoxButton.addEventListener('click', function () {
         const newBox = document.createElement('div');
         newBox.classList.add('box');
-        
+
         const boxContent = document.createElement('div');
         boxContent.classList.add('box-content');
         boxContent.innerHTML = `<i class="fas fa-paint-brush"></i> Edytowalny tekst ${boxCounter}`;
-        
+
         newBox.appendChild(boxContent);
 
-        // Dodajemy przyciski edycji i usuwania do każdego nowego boksu
+
         const boxOptionsContainer = document.createElement('div');
         boxOptionsContainer.classList.add('box-options-container');
-        
+
         const editButton = document.createElement('button');
         editButton.textContent = 'Edytuj';
         editButton.classList.add('edit-button');
         editButton.addEventListener('click', function (event) {
-            // Pobierz istniejący tekst boksu
+
             const currentText = boxContent.textContent;
 
-            // Utwórz element input do edycji tekstu
+
             const input = document.createElement('input');
             input.type = 'text';
             input.value = currentText;
 
-            // Zastąp zawartość boksu elementem input
             boxContent.innerHTML = '';
             boxContent.appendChild(input);
 
-            // Ustaw focus na inputie
+
             input.focus();
 
-            // Obsłuż zdarzenie kliknięcia poza inputem
+
             document.addEventListener('click', function handleOutsideClick(event) {
                 if (event.target !== input) {
-                    // Zastąp input ponownie tekstem po kliknięciu poza inputem
+
                     boxContent.innerHTML = `<i class="fas fa-paint-brush"></i> ${input.value}`;
                     document.removeEventListener('click', handleOutsideClick);
                 }
