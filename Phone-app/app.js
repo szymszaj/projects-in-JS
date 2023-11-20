@@ -25,7 +25,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
         newBox.appendChild(boxContent);
 
-
         const boxOptionsContainer = document.createElement('div');
         boxOptionsContainer.classList.add('box-options-container');
 
@@ -33,25 +32,19 @@ document.addEventListener('DOMContentLoaded', function () {
         editButton.textContent = 'Edytuj';
         editButton.classList.add('edit-button');
         editButton.addEventListener('click', function (event) {
-
             const currentText = boxContent.textContent;
 
-
-            const input = document.createElement('input');
-            input.type = 'text';
-            input.value = currentText;
+            const textarea = document.createElement('textarea');
+            textarea.value = currentText;
 
             boxContent.innerHTML = '';
-            boxContent.appendChild(input);
+            boxContent.appendChild(textarea);
 
-
-            input.focus();
-
+            textarea.focus();
 
             document.addEventListener('click', function handleOutsideClick(event) {
-                if (event.target !== input) {
-
-                    boxContent.innerHTML = `<i class="fas fa-paint-brush"></i> ${input.value}`;
+                if (event.target !== textarea) {
+                    boxContent.innerHTML = `<i class="fas fa-paint-brush"></i> ${textarea.value}`;
                     document.removeEventListener('click', handleOutsideClick);
                 }
             });
@@ -63,7 +56,6 @@ document.addEventListener('DOMContentLoaded', function () {
         deleteButton.textContent = 'Usuń';
         deleteButton.classList.add('delete-button');
         deleteButton.addEventListener('click', function () {
-            // Usuń boks
             boxesContainer.removeChild(newBox);
         });
 
@@ -71,7 +63,6 @@ document.addEventListener('DOMContentLoaded', function () {
         boxOptionsContainer.appendChild(deleteButton);
         newBox.appendChild(boxOptionsContainer);
 
-        // Dodajemy obsługę zdarzenia dla nowo utworzonego boksu
         newBox.addEventListener('click', function () {
             newBox.classList.toggle('flipped');
         });
@@ -80,7 +71,6 @@ document.addEventListener('DOMContentLoaded', function () {
         boxCounter++;
     });
 
-    // Funkcja zwracająca losowy kąt obrotu
     function getRandomRotation() {
         return Math.floor(Math.random() * 360);
     }
