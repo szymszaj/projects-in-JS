@@ -4,3 +4,32 @@
     box-sizing: border-box;
     font-family: 'Lato', sans-serif;
 }
+
+body {
+    background: url('https://cdn.pixabay.com/photo/2018/06/09/09/56/nature-3463957_960_720.jpg') no-repeat center center/ cover;
+    height: 100vh;
+    position: relative;
+
+}
+
+#open-btn {
+    position: absolute;
+    top: 70%;
+    left: 10%;
+    width: 350px;
+    height: 80px;
+    font-size: 2rem;
+    background: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 8px;
+    padding: 5px;
+    box-shadow: 0 0 3px black;
+    transition: background-color .3s, color .3s;
+
+}
+
+#open-btn:hover {
+    background-color: #fff;
+    color: #000;
+}
