@@ -12,7 +12,11 @@ let b = 2;
 
 console.log(a);
 console.log(b);
+<<<<<<< HEAD
 
+=======
+// Destrukturyzacja obiektów
+>>>>>>> 87845eeb35087d785843156e9a52eda8818b7164
 const product = {
 	title: "Fiszki z JavaScript",
 	price: "149",
@@ -29,5 +33,8 @@ console.log(shippingCost);
 const printProduct = ({ title, price }) => console.log(`${title}|${price}PLN`);
 printProduct(product);
 
+<<<<<<< HEAD
 const { price, ...rest } = product;
 console.log(rest);
+=======
+>>>>>>> 87845eeb35087d785843156e9a52eda8818b7164
