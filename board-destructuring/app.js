@@ -5,7 +5,7 @@ const [firstElement, secondElementWithOurCustomName] = array;
 console.log(firstElement); 
 console.log(secondElementWithOurCustomName); 
 
-// Zamiania miejscami elementów w tablicy przy pomocy destrukturyzacji
+// Zamiania miejscami elementów w tablicy
 let a = 1;
 let b = 2;
 
@@ -29,9 +29,6 @@ console.log(shippingCost);
 
 const printProduct = ({ title, price }) => console.log(`${title}|${price}PLN`);
 printProduct(product);
-
-
-
 
 const { price, ...rest } = product;
 console.log(rest);
