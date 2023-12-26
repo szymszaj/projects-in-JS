@@ -7,12 +7,14 @@ const sum = products.reduce(
 );
 console.log(sum);
 
+
+
 const elements = [1, 2, 3, 4, 5, 6];
 const startValue = [[], []];
-const groupedValues = elements
-  .reduce((sum, element) => element < 3 ?
-  [[...sum[0], element], sum[1]]
-  :
-  [sum[0], [...sum[1], element]],
-  );
-  console.log(groupedValues);
+const groupedValues = elements.reduce((sum, element) =>
+  element < 3 ? 
+  [[...sum[0], element], sum[1]] 
+  : 
+  [sum[0], [...sum[1], element]]
+);
+console.log(groupedValues);
