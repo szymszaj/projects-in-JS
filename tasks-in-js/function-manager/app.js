@@ -34,3 +34,14 @@ class AdvancedFunctionManager {
 
 const advancedFunctionManager = new AdvancedFunctionManager();
 
+advancedFunctionManager.addFunction('function1', () => 'Wartość dla funkcji 1');
+advancedFunctionManager.addFunction('function2', () => 'Wartość dla funkcji 2');
+
+console.log(advancedFunctionManager.getValueForFunction('function1'));
+console.log(advancedFunctionManager.getValueForFunction('function2'));
+
+advancedFunctionManager.addFunction('addNumbers', (a, b) => `Suma: ${a + b}`);
+console.log(advancedFunctionManager.getValueForFunction('addNumbers', 3, 5));
+
+advancedFunctionManager.removeFunction('function1');
+console.log(advancedFunctionManager.getValueForFunction('function1'));
