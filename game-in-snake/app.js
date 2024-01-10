@@ -32,6 +32,9 @@ const changeDirection = (e) => {
 const initGame = () => {
   let htmlMarkup = `<div class="food" style="grid-area: ${foodY} / ${foodX}"></div>`;
 
+  if (snakeX === foodX && snakeY === foodY) {
+    changeFoodPosition();
+  }
   //updating the snake's head position based on the current velocity
   snakeX += velocityX;
   snakeY += velocityY;
@@ -41,4 +44,5 @@ const initGame = () => {
 };
 
 changeFoodPosition();
+setInterval(initGame, 125);
 document.addEventListener("keydown", changeDirection);
