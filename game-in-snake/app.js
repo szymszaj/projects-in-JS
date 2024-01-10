@@ -3,7 +3,7 @@ const playBoard = document.querySelector(".play-board");
 let foodX, foodY;
 let snakeX = 5,
   snakeY = 10;
-
+let snakeBody = [];
 let velocityX = 0,
   velocityY = 0;
 
@@ -34,6 +34,7 @@ const initGame = () => {
 
   if (snakeX === foodX && snakeY === foodY) {
     changeFoodPosition();
+    snakeBody.push([foodX, foodY]); //Pushing food position to snake body array
   }
   //updating the snake's head position based on the current velocity
   snakeX += velocityX;
