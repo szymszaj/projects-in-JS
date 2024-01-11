@@ -36,6 +36,12 @@ const initGame = () => {
     changeFoodPosition();
     snakeBody.push([foodX, foodY]); //Pushing food position to snake body array
   }
+
+  for (let i = snakeBody.length - 1; i > 0; i--) {
+    snakeBody[i] = snakeBody[i - 1];
+  }
+
+  snakeBody[0] = [snakeX, snakeY];
   //updating the snake's head position based on the current velocity
   snakeX += velocityX;
   snakeY += velocityY;
