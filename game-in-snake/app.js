@@ -34,7 +34,8 @@ const initGame = () => {
 
   if (snakeX === foodX && snakeY === foodY) {
     changeFoodPosition();
-    snakeBody.push([foodX, foodY]); //Pushing food position to snake body array
+    //Pushing food position to snake body array
+    snakeBody.push([foodX, foodY]);
   }
 
   for (let i = snakeBody.length - 1; i > 0; i--) {
