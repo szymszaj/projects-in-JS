@@ -131,18 +131,6 @@ main {
     overflow: hidden;
 }
 
-/* .box.flipped {
-    transform: rotateY(180deg);
-}
-
-.box-content {
-    transition: transform 0.5s;
-}
-
-.box.flipped .box-content {
-    transform: rotateY(180deg);
-} */
-
 .box-options-container {
     position: absolute;
     top: 0;
