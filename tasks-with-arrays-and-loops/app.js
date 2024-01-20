@@ -59,12 +59,6 @@ let vehicles = [
     color: "Green",
     fuelType: "Electricity",
   },
-  {
-    name: "Porsche 911",
-    type: "Sports Car",
-    color: "Red",
-    fuelType: "Gasoline",
-  },
 ];
 
 let planets = [
@@ -112,12 +106,6 @@ let planets = [
     name: "Pluto",
     type: "Dwarf planet",
     distanceFromSun: "5.91 billion km",
-  },
-  {
-    name: "Mars II",
-    type: "Moon",
-    distanceFromPlanet: "30,000 km",
-    orbitPeriod: "1.5 days",
   },
 ];
 
