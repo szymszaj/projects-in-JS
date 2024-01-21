@@ -15,29 +15,29 @@ let score = 0;
 let highScore = localStorage.getItem("high-score") || 0;
 highScoreElement.innerText = `High Score: ${highScore}`;
 
-
 const changeFoodPosition = () => {
   foodX = Math.floor(Math.random() * 30) + 1;
   foodY = Math.floor(Math.random() * 30) + 1;
 };
-//clearing the timer and reloading the page on game
+
+// clearing the timer and reloading the page on game over
 const handleGameOver = () => {
   clearInterval(setIntervalId);
-  alert("Game over! Press Ok to repley..");
+  alert("Game over! Press Ok to replay..");
   location.reload();
 };
 
 const changeDirection = (e) => {
-  if (e.key === "ArrowUp" && velocityY != 1) {
+  if (e.key === "ArrowUp" && velocityY !== 1) {
     velocityX = 0;
     velocityY = -1;
-  } else if (e.key === "ArrowDown" && velocityY != -1) {
+  } else if (e.key === "ArrowDown" && velocityY !== -1) {
     velocityX = 0;
     velocityY = 1;
-  } else if (e.key === "ArrowLeft" && velocityX != 1) {
+  } else if (e.key === "ArrowLeft" && velocityX !== 1) {
     velocityX = -1;
     velocityY = 0;
-  } else if (e.key === "ArrowRight" && velocityX != -1) {
+  } else if (e.key === "ArrowRight" && velocityX !== -1) {
     velocityX = 1;
     velocityY = 0;
   }
@@ -50,7 +50,7 @@ const initGame = () => {
 
   if (snakeX === foodX && snakeY === foodY) {
     changeFoodPosition();
-    snakeBody.push([foodX, foodY]); //Pushing food position to snake body array
+    snakeBody.push([foodX, foodY]);
     score++;
 
     highScore = score >= highScore ? score : highScore;
@@ -64,7 +64,6 @@ const initGame = () => {
   }
 
   snakeBody[0] = [snakeX, snakeY];
-  //updating the snake's head position based on the current velocity
   snakeX += velocityX;
   snakeY += velocityY;
 
@@ -75,7 +74,6 @@ const initGame = () => {
   for (let i = 0; i < snakeBody.length; i++) {
     htmlMarkup += `<div class="head" style="grid-area: ${snakeBody[i][1]} / ${snakeBody[i][0]}"></div>`;
 
-    //checking if the snake head hit the body
     if (
       i !== 0 &&
       snakeBody[0][1] === snakeBody[i][1] &&
@@ -86,8 +84,24 @@ const initGame = () => {
   }
 
   playBoard.innerHTML = htmlMarkup;
-};
 
+  // Update setInterval duration based on the score
+  let intervalDuration;
+  if (score >= 30) {
+    intervalDuration = 50;
+  } else if (score >= 20) {
+    intervalDuration = 80;
+  } else if (score >= 10) {
+    intervalDuration = 105;
+  } else if (score >= 5) {
+    intervalDuration = 125;
+  } else {
+    intervalDuration = 70; // Default interval if score is less than 5
+  }
+
+  clearInterval(setIntervalId);
+  setIntervalId = setInterval(initGame, intervalDuration);
+};
 changeFoodPosition();
 setIntervalId = setInterval(initGame, 125);
 document.addEventListener("keydown", changeDirection);
