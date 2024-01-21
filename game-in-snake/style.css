@@ -36,8 +36,8 @@ body {
   background: #212837;
 }
 .play-board .food {
-  background: rgb(5, 242, 72);
+  background: rgb(5, 242, 76);
 }
 .play-board .head {
-  background: wheat;
+  background: rgb(235, 8, 197);
 }
