@@ -7,15 +7,18 @@ let snakeX = 5,
 let snakeBody = [];
 let velocityX = 0,
   velocityY = 0;
+let setIntervalId;
 
 const changeFoodPosition = () => {
   foodX = Math.floor(Math.random() * 30) + 1;
   foodY = Math.floor(Math.random() * 30) + 1;
 };
-
+//clearing the timer and reloading the page on game 
 const handleGameOver = () => {
-  alert("Game over! Press Ok to repley..")
-}
+  clearInterval(setIntervalId);
+  alert("Game over! Press Ok to repley..");
+  location.reload();
+};
 
 const changeDirection = (e) => {
   if (e.key === "ArrowUp") {
@@ -65,5 +68,5 @@ const initGame = () => {
 };
 
 changeFoodPosition();
-setInterval(initGame, 125);
+setIntervalId = setInterval(initGame, 125);
 document.addEventListener("keydown", changeDirection);
