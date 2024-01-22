@@ -14,3 +14,21 @@ class HashTable {
   print() {
     console.log(this.storage);
   }
+  add(key, value) {
+    const index = hash(key, this.storageLimit);
+    if (this.storage[index] === undefined) {
+      this.storage[index] = [[key, value]];
+    } else {
+      let inserted = false;
+      for (let i = 0; i < this.storage[index].length; i++) {
+        if (this.storage[index][i][0] === key) {
+          this.storage[index][i][1] = value;
+          inserted = true;
+        }
+      }
+      if (!inserted) {
+        this.storage[index].push([key, value]);
+      }
+    }
+  }
+}
