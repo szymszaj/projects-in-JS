@@ -9,7 +9,7 @@ const hash = (string, max) => {
 class HashTable {
   constructor() {
     this.storage = [];
-    this.storageLimit = 14;
+    this.storageLimit = 4;
   }
 
   print() {
