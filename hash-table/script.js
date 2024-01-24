@@ -30,6 +30,10 @@ class HashTable {
       }
       if (!inserted) {
         this.storage[index].push([key, value]);
+        if (this.storage.length > this.storageLimit * 0.75) {
+          
+          this.resize();
+        }
       }
     }
   }
@@ -69,6 +73,20 @@ class HashTable {
       }
     }
   }
+
+  resize() {
+    const oldStorage = this.storage;
+    this.storageLimit *= 2;
+    this.storage = [];
+
+    oldStorage.forEach(bucket => {
+      if (bucket !== undefined) {
+        bucket.forEach(([key, value]) => {
+          this.add(key, value);
+        });
+      }
+    });
+  }
 }
 
 console.log(hashFunction("quincy", 10));
@@ -79,7 +97,6 @@ ht.add("fido", "dog");
 ht.add("rex", "dinosaur");
 ht.add("tux", "penguin");
 
-// Now, let's iterate through the hash table and print each key-value pair
 ht.iterate((key, value) => {
   console.log(`Key: ${key}, Value: ${value}`);
 });
