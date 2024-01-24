@@ -1,4 +1,4 @@
-const hash = (string, max) => {
+const hashFunction = (string, max) => {
   let hash = 0;
   for (let i = 0; i < string.length; i++) {
     hash += string.charCodeAt(i);
@@ -17,7 +17,7 @@ class HashTable {
   }
 
   add(key, value) {
-    const index = hash(key, this.storageLimit);
+    const index = hashFunction(key, this.storageLimit);
     if (this.storage[index] === undefined) {
       this.storage[index] = [[key, value]];
     } else {
@@ -35,7 +35,7 @@ class HashTable {
   }
 
   remove(key) {
-    const index = hash(key, this.storageLimit);
+    const index = hashFunction(key, this.storageLimit);
     if (this.storage[index].length === 1 && this.storage[index][0][0] === key) {
       delete this.storage[index];
     } else {
@@ -48,7 +48,7 @@ class HashTable {
   }
 
   lookup(key) {
-    const index = hash(key, this.storageLimit);
+    const index = hashFunction(key, this.storageLimit);
     if (this.storage[index] === undefined) {
       return undefined;
     } else {
@@ -59,14 +59,27 @@ class HashTable {
       }
     }
   }
+
+  iterate(callback) {
+    for (let i = 0; i < this.storage.length; i++) {
+      if (this.storage[i] !== undefined) {
+        for (let j = 0; j < this.storage[i].length; j++) {
+          callback(this.storage[i][j][0], this.storage[i][j][1]);
+        }
+      }
+    }
+  }
 }
 
-console.log(hash("quincy", 10));
+console.log(hashFunction("quincy", 10));
 
 const ht = new HashTable();
 ht.add("beau", "person");
 ht.add("fido", "dog");
 ht.add("rex", "dinosaur");
 ht.add("tux", "penguin");
-console.log(ht.lookup("tux"));
-ht.print();
+
+// Now, let's iterate through the hash table and print each key-value pair
+ht.iterate((key, value) => {
+  console.log(`Key: ${key}, Value: ${value}`);
+});
