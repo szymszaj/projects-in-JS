@@ -31,7 +31,7 @@ class HashTable {
       if (!inserted) {
         this.storage[index].push([key, value]);
         if (this.storage.length > this.storageLimit * 0.75) {
-          
+          // Scale up if the number of elements exceeds 75% of the storage size
           this.resize();
         }
       }
