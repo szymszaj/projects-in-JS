@@ -3,13 +3,13 @@ const hashFunction = (string, max) => {
   for (let i = 0; i < string.length; i++) {
     hash += string.charCodeAt(i);
   }
-  return hash % max;
+  return hash % max; //Hash function - returns the remainder of the sum of character codes divided by the maximum limit
 };
 
 class HashTable {
   constructor() {
     this.storage = [];
-    this.storageLimit = 4;
+    this.storageLimit = 4; // Maximum limit for storing data in the hash table
   }
 
   print() {
@@ -31,7 +31,7 @@ class HashTable {
       if (!inserted) {
         this.storage[index].push([key, value]);
         if (this.storage.length > this.storageLimit * 0.75) {
-          // Scale up if the number of elements exceeds 75% of the storage size
+          // Scaling up when the number of elements exceeds 75% of the storage size
           this.resize();
         }
       }
@@ -76,7 +76,7 @@ class HashTable {
 
   resize() {
     const oldStorage = this.storage;
-    this.storageLimit *= 2;
+    this.storageLimit *= 2; // Doubling the maximum limit of the hash table's capacity
     this.storage = [];
 
     oldStorage.forEach(bucket => {
