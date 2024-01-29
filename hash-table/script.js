@@ -79,7 +79,7 @@ class HashTable {
     this.storageLimit *= 2; // Doubling the maximum limit of the hash table's capacity
     this.storage = [];
 
-    oldStorage.forEach(bucket => {
+    oldStorage.forEach((bucket) => {
       if (bucket !== undefined) {
         bucket.forEach(([key, value]) => {
           this.add(key, value);
