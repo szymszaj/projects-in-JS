@@ -1,3 +1,4 @@
+//Clone a slider from the project, a working version.
 import Image from "next/image";
 import React, { useState } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
