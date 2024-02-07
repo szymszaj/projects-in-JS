@@ -88,9 +88,9 @@ const initGame = () => {
   // Update setInterval duration based on the score
   let intervalDuration;
   if (score >= 30) {
-    intervalDuration = 50;
+    intervalDuration = 40;
   } else if (score >= 20) {
-    intervalDuration = 80;
+    intervalDuration = 60;
   } else if (score >= 10) {
     intervalDuration = 105;
   } else if (score >= 5) {
