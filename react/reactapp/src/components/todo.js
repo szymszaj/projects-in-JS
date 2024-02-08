@@ -3,8 +3,8 @@ import React from 'react';
 class todo extends React.Component {
     state = {
         elements: [
-            { id: '123123123', title: 'zrobić zakupy' },
-            { id: '1231fds123', title: 'opłacić TV' }
+            { id: '123143451', title: 'zrobić zakupy' },
+            { id: '12f456h', title: 'opłacić TV' }
         ]
     }
     render() {
