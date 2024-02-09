@@ -20,7 +20,6 @@ const changeFoodPosition = () => {
   foodY = Math.floor(Math.random() * 30) + 1;
 };
 
-// clearing the timer and reloading the page on game over
 const handleGameOver = () => {
   clearInterval(setIntervalId);
   alert("Game over! Press Ok to replay..");
@@ -85,6 +84,7 @@ const initGame = () => {
 
   playBoard.innerHTML = htmlMarkup;
 
+
   // Update setInterval duration based on the score
   let intervalDuration;
   if (score >= 30) {
@@ -96,8 +96,9 @@ const initGame = () => {
   } else if (score >= 5) {
     intervalDuration = 125;
   } else {
-    intervalDuration = 70; // Default interval if score is less than 5
+    intervalDuration = 70; 
   }
+
 
   clearInterval(setIntervalId);
   setIntervalId = setInterval(initGame, intervalDuration);
