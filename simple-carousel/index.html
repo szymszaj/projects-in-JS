@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carousel Example</title>
+    <style>
+      .carousel {
+        width: 300px;
+        overflow: hidden;
+        margin: 0 auto;
+      }
+
+      .carousel ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        transition: transform 0.5s ease;
+      }
+
+      .carousel li {
+        width: 300px;
+        flex: 0 0 auto;
+      }
+
+      .carousel img {
+        width: 100%;
+        height: auto;
+      }
+
+      .prev,
+      .next {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="carousel">
+      <ul>
+        <li>
+          <img
+            src="https://via.placeholder.com/300x150?text=Image+1"
+            alt="Image 1"
+          />
+        </li>
+        <li>
+          <img
+            src="https://via.placeholder.com/300x150?text=Image+2"
+            alt="Image 2"
+          />
+        </li>
+        <li>
+          <img
+            src="https://via.placeholder.com/300x150?text=Image+3"
+            alt="Image 3"
+          />
+        </li>
+        <li>
+          <img
+            src="https://via.placeholder.com/300x150?text=Image+4"
+            alt="Image 4"
+          />
+        </li>
+      </ul>
+    </div>
+    <button class="prev">Previous</button>
+    <button class="next">Next</button>
+    <script src="app.js"></script>
+  </body>
+</html>
