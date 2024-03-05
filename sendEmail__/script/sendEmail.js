@@ -30,5 +30,4 @@ function sendEmail() {
   });
 }
 
-// Wywołanie funkcji do wysyłania emaila
 sendEmail();
