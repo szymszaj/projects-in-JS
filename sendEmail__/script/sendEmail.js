@@ -33,3 +33,5 @@ function sendEmail() {
 }
 
 sendEmail();
+
+//instal {npm install nodemailer}
