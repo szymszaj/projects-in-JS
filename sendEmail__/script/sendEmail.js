@@ -1,29 +1,31 @@
-// Importowanie modułu nodemailer
 const nodemailer = require("nodemailer");
+const fs = require("fs");
 
-// Konfiguracja danych do wysyłki emaila
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "twoj_email@gmail.com", // Email, z którego będziesz wysyłać
-    pass: "twoje_haslo", // Hasło do tego emaila
+    user: "twoj_email@gmail.com",
+    pass: "twoje_haslo",
   },
 });
 
-// Funkcja do wysyłania emaila
 function sendEmail() {
-  // Ustawienia emaila
   const mailOptions = {
-    from: "twoj_email@gmail.com", // Email nadawcy
-    to: "adres_odbiorcy@gmail.com", // Email odbiorcy
-    subject: "Temat emaila", // Temat emaila
-    text: "Treść wiadomości", // Treść emaila
+    from: "twoj_email@gmail.com",
+    to: "adres_odbiorcy@gmail.com",
+    subject: "Temat emaila",
+    text: "Treść wiadomości",
+    attachments: [
+      {
+        filename: "plik.jpg", // Nazwa załączonego pliku
+        path: __dirname + "/plik.jpg", // Ścieżka do załączonego pliku
+      },
+    ],
   };
 
-  // Wysłanie emaila
   transporter.sendMail(mailOptions, function (error, info) {
     if (error) {
-      console.log("Błąd podczas wysyłania emaila:", error);
+      console.error("Błąd podczas wysyłania emaila:", error);
     } else {
       console.log("Email został wysłany:", info.response);
     }
