@@ -37,8 +37,72 @@ ul li a {
 }
 ul li a .fa-solid {
   font-size: 2.5em;
-  transition: .3s;
+  transition: 0.3s;
+  pointer-events: none;
 }
 ul li:hover a .fa-solid {
   color: #c7f80d;
+}
+ul li.active a .fa-solid {
+  color: #c7f80d;
+  transform: translateY(-50px);
+}
+#marker {
+  position: absolute;
+  top: -40px;
+  width: 80px;
+  height: 80px;
+  background: #55650a;
+  border-radius: 20px;
+  border-top: 2px solid #c7f80d;
+  border-left: 2px solid #c7f80d;
+  box-shadow: 0 0 0 10px #161616, 0 2px 0 9px #c7f80d;
+  transition: 0.3s;
+}
+#marker::before {
+  content: "";
+  position: absolute;
+  top: 29px;
+  left: -30px;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border-top-right-radius: 20px;
+  box-shadow: 4px -4px 0 4px #161616;
+}
+#marker::after {
+  content: "";
+  position: absolute;
+  top: 29px;
+  left: -30px;
+  width: 20px;
+  height: 20px;
+  background: transparent;
+  border-top-right-radius: 20px;
+  box-shadow: 4px -4px 0 4px #161616;
+}
+#marker span {
+  position: absolute;
+  top: 122px;
+  width: 120%;
+  left: -10%;
+  height: 30px;
+  background: #55650a;
+  box-shadow: 0 0 0 10px #161616, 0 -2px 0 9px #c7f80d;
+  border-radius: 20px;
+  border-right: 1px solid #c7f80d;
+  border-bottom: 1px solid #c7f80d;
+}
+ul li text {
+  position: absolute;
+  pointer-events: none;
+  transform: translateY(50px);
+  opacity: 0;
+  font-size: 0.8em;
+  transition: 0.3s;
+  text-transform: uppercase;
+}
+ul li.active text {
+  opacity: 1;
+  color: rgb(74, 235, 109);
 }
