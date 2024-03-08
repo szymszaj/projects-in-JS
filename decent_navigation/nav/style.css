@@ -8,6 +8,37 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 10vh;
+  min-height: 100vh;
   background: #161616;
+}
+ul {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 60px;
+  background: #242424;
+  border-radius: 30px;
+}
+ul li {
+  list-style: none;
+}
+ul li a {
+  position: relative;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  z-index: 1000;
+  color: #444;
+}
+ul li a .fa-solid {
+  font-size: 2.5em;
+  transition: .3s;
+}
+ul li:hover a .fa-solid {
+  color: #c7f80d;
 }
