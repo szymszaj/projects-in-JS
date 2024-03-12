@@ -9,7 +9,7 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: #e3f2fd;
+  background: #333;
 }
 .wrapper {
   width: 65vmin;
