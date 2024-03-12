@@ -103,13 +103,13 @@ const initGame = () => {
   // Update game loop interval duration based on the current score
   let intervalDuration;
   if (score >= 30) {
-    intervalDuration = 40;
+    intervalDuration = 20;
   } else if (score >= 20) {
-    intervalDuration = 60;
+    intervalDuration = 50;
   } else if (score >= 10) {
-    intervalDuration = 105;
+    intervalDuration = 80;
   } else if (score >= 5) {
-    intervalDuration = 125;
+    intervalDuration = 90;
   } else {
     intervalDuration = 70; // Default interval duration
   }
