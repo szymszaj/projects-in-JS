@@ -13,6 +13,7 @@ let velocityX = 0,
   velocityY = 0; // Velocity of the snake
 let setIntervalId; // ID for the setInterval function used to update the game
 let score = 0; // Current score in the game
+let isPaused = false; // Flag indicating whether the game is paused
 
 // Retrieving high score from local storage, or defaulting to 0 if not available
 let highScore = localStorage.getItem("high-score") || 0;
@@ -32,28 +33,51 @@ const handleGameOver = () => {
   location.reload(); // Reload the page to restart the game
 };
 
+// Function to toggle game pause
+const togglePause = () => {
+  isPaused = !isPaused;
+  if (!isPaused) {
+    setIntervalId = setInterval(initGame, 125); // Resume the game loop
+  }
+};
+
 // Function to handle changes in snake direction based on keyboard input
 const changeDirection = (e) => {
-  // Update velocity based on arrow key presses, preventing reversing direction
-  if (e.key === "ArrowUp" && velocityY !== 1) {
-    velocityX = 0;
-    velocityY = -1;
-  } else if (e.key === "ArrowDown" && velocityY !== -1) {
-    velocityX = 0;
-    velocityY = 1;
-  } else if (e.key === "ArrowLeft" && velocityX !== 1) {
-    velocityX = -1;
-    velocityY = 0;
-  } else if (e.key === "ArrowRight" && velocityX !== -1) {
-    velocityX = 1;
-    velocityY = 0;
+  if (e.key === " ") {
+    // If spacebar is pressed
+    isPaused = !isPaused; // Toggle game pause
+    if (!isPaused) {
+      // If the game is not paused
+      setIntervalId = setInterval(initGame, 125); // Start the game loop
+    } else {
+      clearInterval(setIntervalId); // Pause the game loop
+    }
+    return;
   }
-  initGame(); // Re-initialize the game with the updated direction
+
+  // Update velocity based on arrow key presses, preventing reversing direction
+  if (!isPaused) {
+    // If the game is not paused, allow direction changes
+    if (e.key === "ArrowUp" && velocityY !== 1) {
+      velocityX = 0;
+      velocityY = -1;
+    } else if (e.key === "ArrowDown" && velocityY !== -1) {
+      velocityX = 0;
+      velocityY = 1;
+    } else if (e.key === "ArrowLeft" && velocityX !== 1) {
+      velocityX = -1;
+      velocityY = 0;
+    } else if (e.key === "ArrowRight" && velocityX !== -1) {
+      velocityX = 1;
+      velocityY = 0;
+    }
+    initGame(); // Re-initialize the game with the updated direction
+  }
 };
 
 // Function to initialize the game state and render updates to the game board
 const initGame = () => {
-  if (gameOver) return handleGameOver(); // Check if the game is over, if so, handle it
+  if (gameOver || isPaused) return; // If the game is over or paused, do nothing
 
   let htmlMarkup = `<div class="food" style="grid-area: ${foodY} / ${foodX}"></div>`; // HTML markup for the food element
 
@@ -99,25 +123,13 @@ const initGame = () => {
   }
 
   playBoard.innerHTML = htmlMarkup; // Render HTML markup on the game board
-
-  // Update game loop interval duration based on the current score
-  let intervalDuration;
-  if (score >= 30) {
-    intervalDuration = 20;
-  } else if (score >= 20) {
-    intervalDuration = 50;
-  } else if (score >= 10) {
-    intervalDuration = 80;
-  } else if (score >= 5) {
-    intervalDuration = 90;
-  } else {
-    intervalDuration = 70; // Default interval duration
-  }
-
-  clearInterval(setIntervalId); // Clear previous interval
-  setIntervalId = setInterval(initGame, intervalDuration); // Start new interval with updated duration
 };
 
-changeFoodPosition(); // Initialize food position
-setIntervalId = setInterval(initGame, 125); // Start game loop
-document.addEventListener("keydown", changeDirection); // Listen for keyboard input to change snake direction
+// Initialize food position
+changeFoodPosition();
+
+// Start game loop
+setIntervalId = setInterval(initGame, 125);
+
+// Listen for keyboard input to change snake direction
+document.addEventListener("keydown", changeDirection);
