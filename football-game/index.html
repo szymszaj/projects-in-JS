@@ -1,12 +1,11 @@
-  <!DOCTYPE html>
-  <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Goal game</title>
   </head>
   <body>
-    
     <h1>Goal game</h1>
     <div id="field">
       <div id="ball"></div>
@@ -18,60 +17,59 @@
       <div class="player-score" id="score2">0</div>
     </div>
 
-
     <title>Goal game</title>
-  <style>
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      background: #33333379;
-    }
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background: #33333379;
+      }
 
-    #field {
-      width: 600px;
-      height: 300px;
-      border: 2px solid black;
-      position: relative;
-    }
+      #field {
+        width: 600px;
+        height: 300px;
+        border: 2px solid black;
+        position: relative;
+      }
 
-    #ball {
-      width: 20px;
-      height: 20px;
-      background-color: red;
-      border-radius: 50%;
-      position: absolute;
-    }
+      #ball {
+        width: 20px;
+        height: 20px;
+        background-color: red;
+        border-radius: 50%;
+        position: absolute;
+      }
 
-    #player1,
-    #player2 {
-      width: 10px;
-      height: 80px;
-      background-color: blue;
-      position: absolute;
-    }
+      #player1,
+      #player2 {
+        width: 10px;
+        height: 80px;
+        background-color: blue;
+        position: absolute;
+      }
 
-    #player1 {
-      left: 20px;
-    }
+      #player1 {
+        left: 20px;
+      }
 
-    #player2 {
-      right: 20px;
-    }
+      #player2 {
+        right: 20px;
+      }
 
-    #scoreboard {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
-    }
+      #scoreboard {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
 
-    .player-score {
-      margin: 0 10px;
-    }
-  </style>
+      .player-score {
+        margin: 0 10px;
+      }
+    </style>
 
     <script src="app.js"></script>
   </body>
-  </html>
+</html>

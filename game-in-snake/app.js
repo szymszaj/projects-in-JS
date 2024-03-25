@@ -13,6 +13,7 @@ let velocityX = 0,
   velocityY = 0; // Velocity of the snake
 let setIntervalId; // ID for the setInterval function used to update the game
 let score = 0; // Current score in the game
+let gamePaused = false; // Flag indicating whether the game is paused or not
 
 // Retrieving high score from local storage, or defaulting to 0 if not available
 let highScore = localStorage.getItem("high-score") || 0;
@@ -33,22 +34,38 @@ const handleGameOver = () => {
 };
 
 // Function to handle changes in snake direction based on keyboard input
+// Function to handle changes in snake direction based on keyboard input
 const changeDirection = (e) => {
   // Update velocity based on arrow key presses, preventing reversing direction
-  if (e.key === "ArrowUp" && velocityY !== 1) {
-    velocityX = 0;
-    velocityY = -1;
-  } else if (e.key === "ArrowDown" && velocityY !== -1) {
-    velocityX = 0;
-    velocityY = 1;
-  } else if (e.key === "ArrowLeft" && velocityX !== 1) {
-    velocityX = -1;
-    velocityY = 0;
-  } else if (e.key === "ArrowRight" && velocityX !== -1) {
-    velocityX = 1;
-    velocityY = 0;
+  if (!gamePaused) {
+    if (e.key === "ArrowUp" && velocityY !== 1) {
+      velocityX = 0;
+      velocityY = -1;
+    } else if (e.key === "ArrowDown" && velocityY !== -1) {
+      velocityX = 0;
+      velocityY = 1;
+    } else if (e.key === "ArrowLeft" && velocityX !== 1) {
+      velocityX = -1;
+      velocityY = 0;
+    } else if (e.key === "ArrowRight" && velocityX !== -1) {
+      velocityX = 1;
+      velocityY = 0;
+    } else if (e.key === " ") {
+      // Pause and unpause the game on spacebar press
+      gamePaused = !gamePaused;
+      if (gamePaused) {
+        // If the game is paused, clear the game loop
+        clearInterval(setIntervalId);
+      } else {
+        // If the game is unpaused, resume the game loop
+        setIntervalId = setInterval(initGame, 125);
+      }
+    }
+  } else if (e.key === " ") {
+    // If the game is paused and spacebar is pressed again, resume the game
+    gamePaused = false;
+    setIntervalId = setInterval(initGame, 125);
   }
-  initGame(); // Re-initialize the game with the updated direction
 };
 
 // Function to initialize the game state and render updates to the game board
@@ -103,19 +120,21 @@ const initGame = () => {
   // Update game loop interval duration based on the current score
   let intervalDuration;
   if (score >= 30) {
-    intervalDuration = 40;
+    intervalDuration = 20;
   } else if (score >= 20) {
-    intervalDuration = 60;
+    intervalDuration = 50;
   } else if (score >= 10) {
-    intervalDuration = 105;
+    intervalDuration = 65;
   } else if (score >= 5) {
-    intervalDuration = 125;
+    intervalDuration = 70;
   } else {
     intervalDuration = 70; // Default interval duration
   }
 
   clearInterval(setIntervalId); // Clear previous interval
-  setIntervalId = setInterval(initGame, intervalDuration); // Start new interval with updated duration
+  if (!gamePaused) {
+    setIntervalId = setInterval(initGame, intervalDuration); // Start new interval with updated duration
+  }
 };
 
 changeFoodPosition(); // Initialize food position
