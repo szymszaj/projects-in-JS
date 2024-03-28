@@ -12,7 +12,6 @@ const typeDefs = `
 
 `;
 // Resolvers
-
 const resolvers = {
   Query: {
     title() {
@@ -22,7 +21,7 @@ const resolvers = {
       return 40.99;
     },
     releaseYear() {
-      return null;
+      return 2005;
     },
     rating() {
       return 5;
