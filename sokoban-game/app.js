@@ -143,9 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (walls.some((wall) => isColliding(newX, newY, wall))) return;
 
     // Sprawdzenie, czy nowa pozycja zawiera skrzynkę, a jeśli tak, to przesuń ją
-    const boxIndex = boxes.findIndex((box) =>
-      isColliding(newX, newY, box)
-    );
+    const boxIndex = boxes.findIndex((box) => isColliding(newX, newY, box));
     if (boxIndex !== -1) {
       const newBoxX = boxes[boxIndex].x + dx;
       const newBoxY = boxes[boxIndex].y + dy;
