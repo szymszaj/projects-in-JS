@@ -1,9 +1,9 @@
-const field = document.getElementById('field');
-const ball = document.getElementById('ball');
-const player1 = document.getElementById('player1');
-const player2 = document.getElementById('player2');
-const score1Element = document.getElementById('score1');
-const score2Element = document.getElementById('score2');
+const field = document.getElementById("field");
+const ball = document.getElementById("ball");
+const player1 = document.getElementById("player1");
+const player2 = document.getElementById("player2");
+const score1Element = document.getElementById("score1");
+const score2Element = document.getElementById("score2");
 
 const fieldWidth = field.offsetWidth;
 const fieldHeight = field.offsetHeight;
@@ -30,16 +30,21 @@ function updateBallPosition() {
     ballSpeedY = -ballSpeedY;
   }
 
-
-  if (ballX <= player1.offsetWidth && ballY + ballSize >= player1Y && ballY <= player1Y + playerHeight) {
+  if (
+    ballX <= player1.offsetWidth &&
+    ballY + ballSize >= player1Y &&
+    ballY <= player1Y + playerHeight
+  ) {
     ballSpeedX = -ballSpeedX * 3.2;
   }
 
-
-  if (ballX + ballSize >= fieldWidth - player2.offsetWidth && ballY + ballSize >= player2Y && ballY <= player2Y + playerHeight) {
+  if (
+    ballX + ballSize >= fieldWidth - player2.offsetWidth &&
+    ballY + ballSize >= player2Y &&
+    ballY <= player2Y + playerHeight
+  ) {
     ballSpeedX = -ballSpeedX * 3.2;
   }
-
 
   if (ballX < 0) {
     score2++;
@@ -47,15 +52,14 @@ function updateBallPosition() {
     resetBall();
   }
 
-
   if (ballX > fieldWidth - ballSize) {
     score1++;
     updateScoreboard();
     resetBall();
   }
 
-  ball.style.left = ballX + 'px';
-  ball.style.top = ballY + 'px';
+  ball.style.left = ballX + "px";
+  ball.style.top = ballY + "px";
 }
 
 function resetBall() {
@@ -82,22 +86,22 @@ function updatePlayers() {
     player2Y = fieldHeight - playerHeight;
   }
 
-  player1.style.top = player1Y + 'px';
-  player2.style.top = player2Y + 'px';
+  player1.style.top = player1Y + "px";
+  player2.style.top = player2Y + "px";
 }
 
 function onKeyDown(event) {
   switch (event.key) {
-    case 'w':
+    case "w":
       player1Y -= playerSpeed;
       break;
-    case 's':
+    case "s":
       player1Y += playerSpeed;
       break;
-    case 'ArrowUp':
+    case "ArrowUp":
       player2Y -= playerSpeed;
       break;
-    case 'ArrowDown':
+    case "ArrowDown":
       player2Y += playerSpeed;
       break;
   }
@@ -113,6 +117,6 @@ function gameLoop() {
   updatePlayers();
 }
 
-document.addEventListener('keydown', onKeyDown);
+document.addEventListener("keydown", onKeyDown);
 
-setInterval(gameLoop, 20); 
+setInterval(gameLoop, 20);
