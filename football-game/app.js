@@ -22,14 +22,17 @@ const playerSpeed = 10;
 let score1 = 0;
 let score2 = 0;
 
+// Function to update the position of the ball
 function updateBallPosition() {
   ballX += ballSpeedX;
   ballY += ballSpeedY;
 
+  // Handling ball collision with top and bottom walls
   if (ballY <= 0 || ballY >= fieldHeight - ballSize) {
     ballSpeedY = -ballSpeedY;
   }
 
+  // Handling ball collision with player1's paddle
   if (
     ballX <= player1.offsetWidth &&
     ballY + ballSize >= player1Y &&
@@ -38,6 +41,7 @@ function updateBallPosition() {
     ballSpeedX = -ballSpeedX * 3.2;
   }
 
+  // Handling ball collision with player2's paddle
   if (
     ballX + ballSize >= fieldWidth - player2.offsetWidth &&
     ballY + ballSize >= player2Y &&
@@ -46,6 +50,7 @@ function updateBallPosition() {
     ballSpeedX = -ballSpeedX * 3.2;
   }
 
+  // Handling scoring and resetting ball position
   if (ballX < 0) {
     score2++;
     updateScoreboard();
@@ -58,10 +63,12 @@ function updateBallPosition() {
     resetBall();
   }
 
+  // Updating ball position on the screen
   ball.style.left = ballX + "px";
   ball.style.top = ballY + "px";
 }
 
+// Function to reset the ball position and speed
 function resetBall() {
   ballX = fieldWidth / 2 - ballSize / 2;
   ballY = fieldHeight / 2 - ballSize / 2;
@@ -69,7 +76,9 @@ function resetBall() {
   ballSpeedY = 3;
 }
 
+// Function to update players' positions
 function updatePlayers() {
+  // Preventing players from going out of bounds
   if (player1Y <= 0) {
     player1Y = 0;
   }
@@ -86,10 +95,12 @@ function updatePlayers() {
     player2Y = fieldHeight - playerHeight;
   }
 
+  // Updating players' positions on the screen
   player1.style.top = player1Y + "px";
   player2.style.top = player2Y + "px";
 }
 
+// Event listener for keydown events to control player movement
 function onKeyDown(event) {
   switch (event.key) {
     case "w":
@@ -107,16 +118,20 @@ function onKeyDown(event) {
   }
 }
 
+// Function to update the scoreboard with current scores
 function updateScoreboard() {
   score1Element.textContent = score1;
   score2Element.textContent = score2;
 }
 
+// Main game loop to update ball position and player positions
 function gameLoop() {
   updateBallPosition();
   updatePlayers();
 }
 
+// Event listener for keydown events
 document.addEventListener("keydown", onKeyDown);
 
+// Main game loop running every 20 milliseconds
 setInterval(gameLoop, 20);
