@@ -1,5 +1,6 @@
-function generatePassword(length) {
-  const charset =
+function generatePassword(length, customCharset) {
+  let charset =
+    customCharset ||
     "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+";
   let password = "";
   for (let i = 0; i < length; i++) {
@@ -12,5 +13,10 @@ function generatePassword(length) {
 const newPassword = generatePassword(12); // Password length, e.g. 12 characters
 console.log("Generated password:", newPassword);
 
-// command to invoke 
-// node generatePassword.js = Generated password: Z$xkJXy&gA@+
+// Example with custom character set
+const customCharset = "abcdefghijklmnopqrstuvwxyz";
+const newPasswordWithCustomCharset = generatePassword(8, customCharset); // Using custom character set
+console.log(
+  "Generated password with custom charset:",
+  newPasswordWithCustomCharset
+);
