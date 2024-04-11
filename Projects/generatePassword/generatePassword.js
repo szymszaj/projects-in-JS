@@ -20,3 +20,4 @@ console.log(
   "Generated password with custom charset:",
   newPasswordWithCustomCharset
 );
+// node generatePassword.js
