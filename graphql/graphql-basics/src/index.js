@@ -20,11 +20,33 @@ const users = [
   },
 ];
 
+const posts = [
+  {
+    id: "10",
+    title: "GraphQL",
+    body: "This is GraphQL ",
+    published: true,
+  },
+  {
+    id: "11",
+    title: "GraphQL 21",
+    body: "This is GraphQL... ",
+    published: false,
+  },
+  {
+    id: "12",
+    title: "Programing music",
+    body: "",
+    published: false,
+  },
+];
+
 // Type definitions (schema)
 const typeDefs = `
 
   type Query {
     users(query: String): [User!]!
+    posts(query: String): [Post!]!
     me: User!
     post: Post!
   }
@@ -43,6 +65,7 @@ const typeDefs = `
     published: Boolean!
   }
 `;
+
 // Resolvers
 const resolvers = {
   Query: {
@@ -55,6 +78,18 @@ const resolvers = {
           .toLocaleLowerCase()
           .includes(args.query.toLocaleLowerCase());
       });
+    },
+
+    posts(parent, args, ctx, info) {
+      if (args.query) {
+        return posts;
+      }
+
+      return posts.filter((post)=> {
+        const isTitleMatch = post.title.toLocaleLowerCase().includes(args.query.toLocaleLowerCase())
+        const isBodyMatch = post.body.toLocaleLowerCase().includes(args.query.toLocaleLowerCase())
+        return isTitleMatch || isBodyMatch 
+      })
     },
 
     me() {
