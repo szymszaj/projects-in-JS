@@ -26,18 +26,21 @@ const posts = [
     title: "GraphQL",
     body: "This is GraphQL ",
     published: true,
+    author: "1",
   },
   {
     id: "11",
     title: "GraphQL 21",
     body: "This is GraphQL... ",
     published: false,
+    author: "1",
   },
   {
     id: "12",
     title: "Programing music",
     body: "",
     published: false,
+    author: "2",
   },
 ];
 
@@ -56,6 +59,7 @@ const typeDefs = `
     name: String!
     email: String!
     age: Int 
+    posts: [Post!]!
   }
    
   type Post {
@@ -63,6 +67,7 @@ const typeDefs = `
     title: String!
     body: String!
     published: Boolean!
+    author: User!
   }
 `;
 
@@ -85,11 +90,15 @@ const resolvers = {
         return posts;
       }
 
-      return posts.filter((post)=> {
-        const isTitleMatch = post.title.toLocaleLowerCase().includes(args.query.toLocaleLowerCase())
-        const isBodyMatch = post.body.toLocaleLowerCase().includes(args.query.toLocaleLowerCase())
-        return isTitleMatch || isBodyMatch 
-      })
+      return posts.filter((post) => {
+        const isTitleMatch = post.title
+          .toLocaleLowerCase()
+          .includes(args.query.toLocaleLowerCase());
+        const isBodyMatch = post.body
+          .toLocaleLowerCase()
+          .includes(args.query.toLocaleLowerCase());
+        return isTitleMatch || isBodyMatch;
+      });
     },
 
     me() {
@@ -108,6 +117,21 @@ const resolvers = {
         body: "",
         published: "",
       };
+    },
+    Post: {
+      author(parent, args, ctx, info) {
+        return users.find((user) => {
+          return user.id === parent.author;
+        });
+      },
+    },
+
+    User: {
+      posts(parent, args, ctx, info) {
+        return post.filter((post) => {
+          return post.author === parent.id;
+        });
+      },
     },
   },
 };
