@@ -37,7 +37,7 @@ body {
 .box .password-strength {
   position: absolute;
   inset: 0;
-  background: #1115;
+  background: #111; /* Dostosuj kolor według potrzeb */
 }
 .box .password-strength:nth-child(3) {
   filter: blur(5px);
