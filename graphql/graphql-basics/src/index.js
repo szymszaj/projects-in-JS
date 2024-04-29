@@ -54,6 +54,11 @@ const typeDefs = `
     post: Post!
   }
 
+  type Mutation {
+    createUser(name: String!, email: String!, age: Int): User!
+    createPost(title: String!, body: String!, published: Boolean!, author: ID!): Post!
+  }
+
   type User  {
     id: ID!
     name: String!
@@ -131,6 +136,31 @@ const resolvers = {
         return post.filter((post) => {
           return post.author === parent.id;
         });
+      },
+    },
+    Mutation: {
+      createUser(parent, args, ctx, info) {
+        const { name, email, age } = args;
+        const user = {
+          id: String(users.length + 1),
+          name,
+          email,
+          age,
+        };
+        users.push(user);
+        return user;
+      },
+      createPost(parent, args, ctx, info) {
+        const { title, body, published, author } = args;
+        const post = {
+          id: String(posts.length + 1),
+          title,
+          body,
+          published,
+          author,
+        };
+        posts.push(post);
+        return post;
       },
     },
   },
