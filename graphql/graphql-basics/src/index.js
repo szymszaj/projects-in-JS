@@ -133,31 +133,6 @@ const resolvers = {
         });
       },
     },
-    Mutation: {
-      createUser(parent, args, ctx, info) {
-        const { name, email, age } = args;
-        const user = {
-          id: String(users.length + 1),
-          name,
-          email,
-          age,
-        };
-        users.push(user);
-        return user;
-      },
-      createPost(parent, args, ctx, info) {
-        const { title, body, published, author } = args;
-        const post = {
-          id: String(posts.length + 1),
-          title,
-          body,
-          published,
-          author,
-        };
-        posts.push(post);
-        return post;
-      },
-    },
   },
 };
 
