@@ -47,19 +47,23 @@ const comments = [
   {
     id: "102",
     test: "This worked well for me.",
+    author: "3",
   },
   {
     id: "103",
     text: "Glad you enjoved it.",
+    author: "1",
   },
 
   {
     id: "104",
     text: "This did no work.",
+    author: "2",
   },
   {
     id: "105",
     text: "Nevermind. I got it to work",
+    author: "1",
   },
 ];
 // Type definitions (schema)
@@ -68,6 +72,7 @@ const typeDefs = `
   type Query {
     users(query: String): [User!]!
     posts(query: String): [Post!]!
+    comments: [Comment!]!
     me: User!
     post: Post!
   }
@@ -78,6 +83,7 @@ const typeDefs = `
     email: String!
     age: Int 
     posts: [Post!]!
+    comments: [Comment!]!
   }
    
   type Post {
@@ -90,6 +96,8 @@ const typeDefs = `
   type Comment {
     id: ID!
     text: String!
+    author: User!
+
   }
 `;
 
@@ -123,6 +131,10 @@ const resolvers = {
       });
     },
 
+    comments(parent, args, ctx, info) {
+      return comments;
+    },
+
     me() {
       return {
         id: "123456",
@@ -147,13 +159,20 @@ const resolvers = {
         });
       },
     },
-
+    Comment: {
+      author(parent, args, ctx, info) {
+        return users.find((user) => {
+          return user.id === parent.author;
+        });
+      },
+    },
     User: {
       posts(parent, args, ctx, info) {
         return post.filter((post) => {
           return post.author === parent.id;
         });
       },
+      comments(parent, args, ctx, info) {},
     },
   },
 };
