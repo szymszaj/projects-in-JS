@@ -43,7 +43,25 @@ const posts = [
     author: "2",
   },
 ];
+const comments = [
+  {
+    id: "102",
+    test: "This worked well for me.",
+  },
+  {
+    id: "103",
+    text: "Glad you enjoved it.",
+  },
 
+  {
+    id: "104",
+    text: "This did no work.",
+  },
+  {
+    id: "105",
+    text: "Nevermind. I got it to work",
+  },
+];
 // Type definitions (schema)
 const typeDefs = `
 
@@ -68,6 +86,10 @@ const typeDefs = `
     body: String!
     published: Boolean!
     author: User!
+  }
+  type Comment {
+    id: ID!
+    text: String!
   }
 `;
 
@@ -135,9 +157,6 @@ const resolvers = {
     },
   },
 };
-
-
-
 
 const server = new GraphQLServer({
   typeDefs,
