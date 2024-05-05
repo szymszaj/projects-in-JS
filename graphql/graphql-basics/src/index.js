@@ -173,9 +173,9 @@ const resolvers = {
         });
       },
       comments(parent, args, ctx, info) {
-        return comments.filter((comment)=> {
-          return comment.author === parent.id 
-        })
+        return comments.filter((comment) => {
+          return comment.author === parent.id;
+        });
       },
     },
   },
