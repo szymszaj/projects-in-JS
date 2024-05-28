@@ -105,6 +105,7 @@ ht.add("fido", "dog");
 ht.add("rex", "dinosaur");
 ht.add("tux", "penguin");
 
-ht.iterate((key, value) => { // Iterating through all key-value pairs in the hash table and printing them
+ht.iterate((key, value) => {
+  // Iterating through all key-value pairs in the hash table and printing them
   console.log(`Key: ${key}, Value: ${value}`);
 });
