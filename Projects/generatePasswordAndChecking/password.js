@@ -78,9 +78,37 @@ function bruteForcePassword(targetPassword, maxLength, numberOfPasswords) {
 }
 
 const targetPassword = "pa$$w0rd!";
-const maxLength = 10;
-const numberOfPasswords = 10;
+const maxLength = 8;
+const numberOfPasswords = 3000;
 const generatedPassword = generatePassword(maxLength);
 console.log(`Generated Password: ${generatedPassword}`);
-const result = bruteForcePassword(targetPassword, maxLength, numberOfPasswords);
+
+function bruteForcePasswordWithEarlyExit(
+  targetPassword,
+  maxLength,
+  numberOfPasswords
+) {
+  const characters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+[]{}|;:,.<>?";
+  const combinations = generateCombinations(
+    characters,
+    maxLength,
+    numberOfPasswords
+  );
+
+  for (let guess of combinations) {
+    console.log(`Trying: ${guess}`);
+    if (guess === targetPassword) {
+      console.log(`Password found: ${guess}`);
+      return;
+    }
+  }
+  console.log("Password not found within maxLength limit");
+}
+
+const result = bruteForcePasswordWithEarlyExit(
+  targetPassword,
+  maxLength,
+  numberOfPasswords
+);
 console.log(result);
