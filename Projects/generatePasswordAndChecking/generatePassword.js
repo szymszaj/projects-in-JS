@@ -10,12 +10,11 @@ function generatePassword(length, customCharset) {
   return password;
 }
 
-const newPassword = generatePassword(12); // Password length, e.g. 12 characters
+const newPassword = generatePassword(12);
 console.log("Generated password:", newPassword);
 
-// Example with custom character set
 const customCharset = "abcdefghijklmnopqrstuvwxyz";
-const newPasswordWithCustomCharset = generatePassword(8, customCharset); // Using custom character set
+const newPasswordWithCustomCharset = generatePassword(8, customCharset);
 console.log(
   "Generated password with custom charset:",
   newPasswordWithCustomCharset
